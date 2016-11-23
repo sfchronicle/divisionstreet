@@ -8,10 +8,8 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- scripts for stand-alone projects, comment for embedded projects -->
-    <!-- <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %> -->
-
     <%= t.include("partials/_head.html") %>
+    <%= t.include("partials/_paywall.html") %>
 
   </head>
 
@@ -19,32 +17,29 @@
 
     <%= t.include("partials/_nav.html") %>
 
-    <div class="title-container">
-        <h1 class="title long">Division Street Diaspora</h1>
-        <div class="deck">Our intrepid journalists follow the homeless following their dispersion from Division Street on [insert date]</div>
-        <p class="author">By Kevin Fagan</a></p>
-        <p class="date">December 2016</p>
-    </div>
+    <div id="intro">
 
-    <div id="stick-here-profiles"></div>
-    <div class="profiles-container" id="stick-me-profiles">
-      <div class="profile person0 active"><img src="../assets/photos/silhouette.jpg"></img></div>
-      <div class="profile person1"><img src="../assets/photos/silhouette.jpg"></img></div>
-      <div class="profile person2"><img src="../assets/photos/silhouette.jpg"></img></div>
-      <div class="profile person3"><img src="../assets/photos/silhouette.jpg"></img></div>
-      <div class="profile person4"><img src="../assets/photos/silhouette.jpg"></img></div>
-      <div class="profile person5"><img src="../assets/photos/silhouette.jpg"></img></div>
-    </div>
-    <div id="stick-ph-profiles"></div>
+      <div class="title-container">
+          <h1 class="title long">The route to life on the streets</h1>
+          <p class="author">By Kevin Fagan</a></p>
+          <p class="date">Dec. 7, 2016</p>
+      </div>
 
-    <div class="timeline-info">
-      <div class="timeline-date"></div>
-      <div class="timeline-text"></div>
-    </div>
+      <div id="landing">
+        
+        <div class="video-wrapper">
+          <div class="video-bg">
+            <video class="video-file" poster="" autoplay loop src="./assets/videos/portraits/bg.mp4"></video>
+          </div>
+        </div>
+        
+        <div class="deck">During the winter of 2015-16, one of the biggest tent encampments ever seen in San Francisco sprouted under the Highway 101 freeway along the corridor known as Division Street. By the time the Super Bowl drew a national spotlight to the city in early February, as many as 350 people were living in tents pitched along more than five blocks. Later that month, the city began clearing the camps out, with the last big push coming March 1. The Chronicle has followed seven of the Division campers since then. This is where they went.<br>
+        <button>Story</button> <button>Exlpore</button>
+        </div>
+      </div>
 
-    <%= t.include("assets/graphics/divisionmap_oblique_pathtest.svg") %>
+    </div><!-- End of Intro -->
 
-    <div id="stop-stick-here"></div>
 
     <div class="text">
       <%= t.include("partials/_storytext.html") %>
@@ -53,11 +48,10 @@
     <%= t.include("partials/_footer.html") %>
 
     <script>
-      var pathData = <%= JSON.stringify(csv.pathData) %>;
-      console.log(pathData);
+      $(".deck").delay(3000).animate({opacity:"1"},2e3);
     </script>
 
-    <script src="app.js" async></script>
+    <script src="main.js" async></script>
     <%= t.include("partials/_helloSFC.html") %>
 
   </body>

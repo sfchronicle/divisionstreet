@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.seo_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="__sync_contentCategory" content="meterA">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+
+    <%= t.include("partials/_head.html") %>
+    <%= t.include("partials/_paywall.html") %>
+
+  </head>
+
+  <%= !json.project.embedded ? "<body>" : "<body is='reponsive-body'>" %>
+
+    <%= t.include("partials/_nav.html") %>
+
+    <div id="stick-here-profiles"></div>
+    <div class="profiles-container" id="stick-me-profiles">
+      <div class="profile person0 active"><img src="../assets/photos/silhouette.jpg"></img></div>
+      <div class="profile person1"><img src="../assets/photos/silhouette.jpg"></img></div>
+      <div class="profile person2"><img src="../assets/photos/silhouette.jpg"></img></div>
+      <div class="profile person3"><img src="../assets/photos/silhouette.jpg"></img></div>
+      <div class="profile person4"><img src="../assets/photos/silhouette.jpg"></img></div>
+      <div class="profile person5"><img src="../assets/photos/silhouette.jpg"></img></div>
+    </div>
+    <div id="stick-ph-profiles"></div>
+
+    <div class="timeline-info">
+      <div class="timeline-date"></div>
+      <div class="timeline-text"></div>
+    </div>
+
+    <%= t.include("assets/graphics/divisionmap_oblique_pathtest.svg") %>
+
+    <div id="stop-stick-here"></div>
+
+    <div class="text">
+      <%= t.include("partials/_storytext.html") %>
+    </div>
+
+    <%= t.include("partials/_footer.html") %>
+
+    <script>
+      var pathData = <%= JSON.stringify(csv.pathData) %>;
+      console.log(pathData);
+    </script>
+
+    <script src="../map.js" async></script>
+    <%= t.include("partials/_helloSFC.html") %>
+
+  </body>
+</html>
