@@ -97,8 +97,6 @@
 
 #landing{
   margin-top:1em;
-  .justify-content(center);
-  background:#000;
   position:relative;
 }
 
@@ -108,7 +106,6 @@
 .video-bg{
     opacity: 1;
     overflow: hidden;
-    margin-bottom:-9px;
 }
 
 .video-file{
@@ -144,4 +141,26 @@
 .date{
   font-size:0.6em;
   margin-bottom: 0;
+}
+
+.inline-video{
+  max-width:850px;
+  margin: 2em auto;
+}
+
+.float-video{
+  max-width: 500px;
+  &.right{
+    float:right;
+    margin:1em -7.5em 0.5em 1.5em;
+  }
+}
+
+.dropcap {
+  float: left;
+  color: #EC1C24;
+  font-size: 60px;
+  line-height: 46px;
+  padding-top: 4px;
+  padding-right: 8px;
 }

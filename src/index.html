@@ -34,21 +34,26 @@
         </div>
         
         <div class="deck">During the winter of 2015-16, one of the biggest tent encampments ever seen in San Francisco sprouted under the Highway 101 freeway along the corridor known as Division Street. By the time the Super Bowl drew a national spotlight to the city in early February, as many as 350 people were living in tents pitched along more than five blocks. Later that month, the city began clearing the camps out, with the last big push coming March 1. The Chronicle has followed seven of the Division campers since then. This is where they went.<br>
-        <button>Story</button> <button>Exlpore</button>
+        <button id="mainbar_btn">Story</button> <button>Exlpore</button>
         </div>
       </div>
 
     </div><!-- End of Intro -->
 
 
-    <div class="text">
-      <%= t.include("partials/_storytext.html") %>
+    <div id="mainbar" class="text">
+      <%= t.include("partials/_mainbar.html") %>
     </div>
 
     <%= t.include("partials/_footer.html") %>
 
     <script>
       $(".deck").delay(3000).animate({opacity:"1"},2e3);
+      $('#mainbar_btn').on('click', function() {
+          $('html, body').animate({
+              scrollTop: $('#mainbar').offset().top - 60
+          }, 500);
+      });
     </script>
 
     <script src="main.js" async></script>
