@@ -96,7 +96,7 @@
 
 
 #landing{
-  margin-top:1em;
+  margin-top:36px;
   position:relative;
 }
 
@@ -113,28 +113,27 @@
 }
 
 .title-container{
-  margin-top:2.5em;
+  margin-top:0;
 }
 
 .deck{
-  max-width: 610px;
-    font-family: Georgia;
-    font-size: 0.85em;
-    position: absolute;
-    top: 25%;
-    margin:0 auto;
-    left:0;
-    right:0;
-    background: rgba(249, 249, 249, 0.94);
-    padding: 20px;
-    opacity:0;
-    color:#000;
-    line-height:1.4;
+  max-width: 750px;
+  font-family: Georgia;
+  font-size: 0.85em;
+  margin:0.5em auto 0;
+  line-height: 1.4;
 }
 
 .title{
   &.long{
   margin-bottom:0;
+  font-size: 2.5em;
+  max-width: 730px;
+  margin:0 auto;
+
+  @media @mobile{
+    font-size:1.5em;
+  }
   }
 }
 
@@ -163,4 +162,33 @@
   line-height: 46px;
   padding-top: 4px;
   padding-right: 8px;
+}
+
+#btn-group{
+  max-width: 600px;
+  margin:0.7em auto 0;
+  text-align:center;
+}
+
+
+.btn {
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  background: #d93434;
+  padding: 10px 20px;
+  text-decoration: none;
+  border:none;
+  cursor:pointer;
+
+  &:focus{
+    outline:none;
+  }
+
+  &:hover{
+    background:#b32d2d;
+  }
+
 }

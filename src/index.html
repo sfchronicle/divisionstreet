@@ -17,14 +17,6 @@
 
     <%= t.include("partials/_nav.html") %>
 
-    <div id="intro">
-
-      <div class="title-container">
-          <h1 class="title long">The route to life on the streets</h1>
-          <p class="author">By Kevin Fagan</a></p>
-          <p class="date">Dec. 7, 2016</p>
-      </div>
-
       <div id="landing">
         
         <div class="video-wrapper">
@@ -32,10 +24,20 @@
             <video class="video-file" poster="" autoplay loop src="./assets/videos/portraits/bg.mp4"></video>
           </div>
         </div>
-        
-        <div class="deck">During the winter of 2015-16, one of the biggest tent encampments ever seen in San Francisco sprouted under the Highway 101 freeway along the corridor known as Division Street. By the time the Super Bowl drew a national spotlight to the city in early February, as many as 350 people were living in tents pitched along more than five blocks. Later that month, the city began clearing the camps out, with the last big push coming March 1. The Chronicle has followed seven of the Division campers since then. This is where they went.<br>
-        <button id="mainbar_btn">Story</button> <button>Exlpore</button>
+
+        <div id="intro">
+
+      <div class="title-container">
+        <h1 class="title long">Seven lives, seven paths, little change</h1>
+        <div class="deck">Nine months after sweep, S.F. homeless camp, issues abide</div>
+        <div id="btn-group">
+          <button id="mainbar_btn" class="btn">Read their story</button>
+          <button id="map_btn" class="btn">Explore their journey</button>
         </div>
+      </div>
+          <p class="author">By Kevin Fagan</a></p>
+          <p class="date">Dec. 7, 2016</p>
+      </div>
       </div>
 
     </div><!-- End of Intro -->
@@ -48,7 +50,6 @@
     <%= t.include("partials/_footer.html") %>
 
     <script>
-      $(".deck").delay(3000).animate({opacity:"1"},2e3);
       $('#mainbar_btn').on('click', function() {
           $('html, body').animate({
               scrollTop: $('#mainbar').offset().top - 60
