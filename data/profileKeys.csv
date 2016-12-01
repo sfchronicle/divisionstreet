@@ -1,7 +1,7 @@
-id,name,description,photo
-0,"Terry Quinn, 54","Quinn, who had been homeless off and on for eight years, struggled with methamphetamine addiction and is now working toward sobriety.",
-1,"Kathy Gray, 52","Gray is a transsexual woman who has been undergoing transition for four years while struggling with off-and-on homelessness.",
-2,"Oscar McKinney, 50","Homeless for at least 20 years, McKinney works odd jobs while living in tents.",
-3,"Robert Brownell, 58, and Cassandra Brownell, 64","The Brownells are married and retired — he from working with flooring, she from bartending — and consider their RV camper their rolling home.",
-4,"Angelique Mayweather, 48","Mayweather worked at catering jobs until abusive relationships led to homelessness two years ago.",
-5,"Papa Smirf, 57","He refuses to give his real name — has been homeless off and on in San Francisco for nearly four decades.",
+id,name,description,pathname,photo
+0,"Terry Quinn, 54","Quinn, who had been homeless off and on for eight years, struggled with methamphetamine addiction and is now working toward sobriety.",QuinnRoute,
+1,"Kathy Gray, 52","Gray is a transsexual woman who has been undergoing transition for four years while struggling with off-and-on homelessness.",GrayRoute,
+2,"Oscar McKinney, 50","Homeless for at least 20 years, McKinney works odd jobs while living in tents.",McKinneyRoute,
+3,"Robert Brownell, 58, and Cassandra Brownell, 64","The Brownells are married and retired — he from working with flooring, she from bartending — and consider their RV camper their rolling home.",BrownellRoute,
+4,"Angelique Mayweather, 48","Mayweather worked at catering jobs until abusive relationships led to homelessness two years ago.",MayweatherRoute,
+5,"Papa Smirf, 57","He refuses to give his real name — has been homeless off and on in San Francisco for nearly four decades.",PaPaSmirfRoute,

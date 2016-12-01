@@ -1,9 +1,39 @@
-@person1: #CF5EA3;
-@person2: #E5B76B;
-@person3: #21A466;
-@person4: #E14940;
-@person5: #34C1D5;
-@person6: #0085BB;
+@person0: #CF5EA3;
+@person1: #E5B76B;
+@person2: #21A466;
+@person3: #E14940;
+@person4: #34C1D5;
+@person5: #0085BB;
+
+@button-color: #6790B7;
+
+path {
+  stroke-opacity: 0.3;
+  stroke-width: 6px;
+}
+
+.button {
+  width: 400px;
+  color: white;
+  text-align: center;
+  font-family: @bold-graphics;
+  font-size: 16px;
+  // display: inline-block;
+  border-radius: 3px;
+  padding: 1px;
+  cursor: pointer;
+  background: @button-color;
+  margin: auto;
+  padding: 10px 30px;
+  .fa {
+    padding-left: 20px;
+    font-size: 25px;
+    vertical-align: middle;
+  }
+  &:hover {
+    background: lighten(@button-color,10%);
+  }
+}
 
 #map-container {
   tspan {
@@ -13,43 +43,46 @@
   text {
     font-size: 10px;
   }
+  position: fixed;
 }
 
-.fa-angle-double-right, .fa-angle-double-left {
+.fa-angle-double-right, .fa-refresh {
   font-size: 30px;
   cursor: pointer;
 }
 
-#previousbutton {
+#refreshbutton {
   display: none;
 }
 
 
 .profiles-container {
   max-width: 900px;
-  margin: auto;
+  margin: 40px auto;
   z-index: 100;
   .display-flex;
   .flex-wrap(wrap);
   .profile {
     .flex(0 0 16.666%);
+    // display: inline-block;
+    // float: left;
     text-align:center;
-    margin: 40px auto;
+    // margin: 40px auto;
     border: 2px solid blue;
     img {
       width: 100%;
       height: 100%;
     }
-    opacity: 0.7;
+    opacity: 0.6;
     &:hover {
       opacity: 0.3;
     }
+    &.person0 { border: 4px solid @person0;}
     &.person1 { border: 4px solid @person1;}
     &.person2 { border: 4px solid @person2;}
     &.person3 { border: 4px solid @person3;}
     &.person4 { border: 4px solid @person4;}
     &.person5 { border: 4px solid @person5;}
-    &.person6 { border: 4px solid @person6;}
     &.active {
       opacity: 1;
     }
@@ -61,6 +94,7 @@
   margin: auto;
   border-bottom: 1px @dark-gray solid;
   height: 2px;
+  margin-bottom: 40px;
 }
 
 .text {
