@@ -15,6 +15,15 @@
   }
 }
 
+.fa-angle-double-right, .fa-angle-double-left {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+#previousbutton {
+  display: none;
+}
+
 
 .profiles-container {
   max-width: 900px;
@@ -85,7 +94,7 @@
    position: fixed;
    top: 0 !important;
    vertical-align: middle;
-   z-index: 0;
+   z-index: 100;
    max-width: 900px;
    margin: auto;
    width: 100%;
@@ -129,6 +138,9 @@
   font-size: 0.85em;
   margin:0.5em auto 0;
   line-height: 1.4;
+  &.map {
+    margin-top: 30px;
+  }
 }
 
 .title{
