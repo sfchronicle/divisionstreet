@@ -1,13 +1,25 @@
-@person1: #6C85A5;
-@person2: #D13D59;
-@person3: #FFCC32;
-@person4: #889C6B;
-@person5: #996B7D;
-@person6: #A89170;
+@person1: #CF5EA3;
+@person2: #E5B76B;
+@person3: #21A466;
+@person4: #E14940;
+@person5: #34C1D5;
+@person6: #0085BB;
+
+#map-container {
+  tspan {
+    font-family: @bold-graphics;
+    font-size: 14px;
+  }
+  text {
+    font-size: 10px;
+  }
+}
+
 
 .profiles-container {
   max-width: 900px;
   margin: auto;
+  z-index: 100;
   .display-flex;
   .flex-wrap(wrap);
   .profile {
@@ -35,12 +47,6 @@
   }
 }
 
-.division-map {
-  .background {
-    width: 100%;
-  }
-}
-
 .divider {
   width: 80%;
   margin: auto;
@@ -61,6 +67,11 @@
 .timeline-info {
   font-family: @block-graphics;
   text-align: center;
+  position: absolute;
+  right: 20px;
+  width: 300px;
+  background: lighten(@light-gray,10%);
+  padding: 20px;
   .timeline-date {
     color: @red;
     font-family: @med-graphics;
@@ -114,6 +125,9 @@
 
 .title-container{
   margin-top:0;
+  &.map {
+    margin-top: 100px;
+  }
 }
 
 .deck{

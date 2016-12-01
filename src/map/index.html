@@ -9,11 +9,18 @@
     <link rel="stylesheet" type="text/css" href="../style.css">
 
     <%= t.include("partials/_head.html") %>
-    <%= t.include("partials/_paywall.html") %>
+    <!-- <%= t.include("partials/_paywall.html") %> -->
 
   </head>
 
   <%= !json.project.embedded ? "<body>" : "<body is='reponsive-body'>" %>
+
+  <div class="title-container map">
+    <h1 class="title long">Division Street Diaspora</h1>
+    <p class="author">By Kevin Fagan</a></p>
+    <p class="date">December 2016</p>
+    <div class="deck">During the winter of 2015-16, one of the biggest homeless encampments ever seen in San Francisco sprouted under the Highway 101 freeway along the corridor known as Division Street. By early February, as many as 350 people were living in tents pitched along more than five city blocks. Later that month, the city began clearing out the camps, with the last big push occurring March 1. Since that date, The Chronicle has tracked the journeys of seven of the displaced Division Street campers. This map shows approximations of their travels to date.</div>
+  </div>
 
     <%= t.include("partials/_nav.html") %>
 
@@ -33,7 +40,9 @@
       <div class="timeline-text"></div>
     </div>
 
-    <%= t.include("assets/graphics/divisionmap_oblique_pathtest.svg") %>
+    <div id="map-container">
+      <%= t.include("assets/graphics/divisionmap_new.svg") %>
+    </div>
 
     <div id="stop-stick-here"></div>
 
@@ -41,7 +50,7 @@
 
     <script>
       var pathData = <%= JSON.stringify(csv.pathData) %>;
-      console.log(pathData);
+      var profileData = <%= JSON.stringify(csv.profileKeys) %>;
     </script>
 
     <script src="../map.js" async></script>
