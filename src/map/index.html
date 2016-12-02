@@ -30,16 +30,19 @@
 
     <%= t.include("partials/_nav.html") %>
 
-    <div id="stick-here-profiles"></div>
-    <div class="profiles-container" id="stick-me-profiles">
-      <div class="profile person0 active"><img src="http://ww2.hdnux.com/photos/54/11/64/11848980/3/2000x1000.jpg"></div>
-      <div class="profile person1"><img src="http://ww2.hdnux.com/photos/54/11/64/11848991/3/2000x1000.jpg"></img></div>
-      <div class="profile person2"><img src="http://ww2.hdnux.com/photos/54/11/64/11848976/3/2000x1000.jpg"></div>
-      <div class="profile person3"><img src="http://ww2.hdnux.com/photos/54/11/64/11848970/3/2000x1000.jpg"></img></div>
-      <div class="profile person4"><img src="http://ww2.hdnux.com/photos/54/11/64/11848981/3/2000x1000.jpg"></div>
-      <div class="profile person5"><img src="http://ww2.hdnux.com/photos/54/11/64/11848963/3/2000x1000.jpg"></img></div>
-    </div>
-    <div id="stick-ph-profiles"></div>
+    <% csv.profileKeys.forEach(function(p,index) { %>
+
+      <div class="inline-img">
+        <img src= <%= p["photo"] %> ></img>
+      </div>
+      <div class="profile-header">
+        <div class="profile-name person<%=index%>"><%=p["name"]%></div>
+        <div class="profile-desc"><%=p["description"]%></div>
+      </div>
+
+
+
+    <% }); %>
 
     <div class="timeline-info">
       <div class="timeline-date"></div>
@@ -51,6 +54,8 @@
     <div id="map-container">
       <%= t.include("assets/graphics/divisionmap_new.svg") %>
     </div>
+
+
 
     <div id="stop-stick-here"></div>
 
