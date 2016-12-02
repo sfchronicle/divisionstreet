@@ -32,13 +32,17 @@
 
     <% csv.profileKeys.forEach(function(p,index) { %>
 
-      <div class="inline-img">
-        <img src= <%= p["photo"] %> ></img>
-      </div>
       <div class="profile-header">
         <div class="profile-name person<%=index%>"><%=p["name"]%></div>
         <div class="profile-desc"><%=p["description"]%></div>
       </div>
+      <div class="inline-img">
+        <img src= <%= p["photo"] %> ></img>
+      </div>
+      <div class="inline-img">
+        <div class='embed-container'><iframe src=<%=p["video"]%> frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+        <div class="caption">A virtual reality viewfinder system designed by Owlized was installed in August at Coyote Point Recreation Area in San Mateo County. It is scheduled to be in place through the end of 2016. <span class="byline">Erin Brethauer, The Chronicle</span></div>
+    </div>
 
 
 

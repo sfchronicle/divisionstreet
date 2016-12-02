@@ -13,7 +13,7 @@ path {
 }
 
 .map-deck{
-  max-width: 550px;
+  max-width: 600px;
   font-size: 1em;
   font-family: @body;
   text-align: center;
@@ -25,13 +25,20 @@ path {
 
 .profile-header {
   max-width: 900px;
+  width: 90%;
   font-family: @med-graphics;
   font-size: 15px;
   text-align: center;
   margin: auto;
+  margin-top: 50px;
   .profile-name {
-    font-family: @bold-graphics;
+    width: 80%;
+    margin: auto;
+    // font-family: @bold-graphics;
     font-size: 25px;
+    @media @tablet {
+      font-size: 20px;
+    }
     &.person0 { border-bottom: 4px solid @person0; }
     &.person1 { border-bottom: 4px solid @person1; }
     &.person2 { border-bottom: 4px solid @person2; }
@@ -41,6 +48,7 @@ path {
   }
   .profile-desc {
     padding-top: 20px;
+    font-family: @bold-graphics;
   }
 }
 
