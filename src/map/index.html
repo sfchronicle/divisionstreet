@@ -25,7 +25,7 @@
     <h1 class="title long">Seven lives, seven paths, little change</h1>
     <p class="author">By Kevin Fagan</a></p>
     <p class="date">December 2016</p>
-    <div class="deck map">During the winter of 2015-16, one of the biggest homeless encampments ever seen in San Francisco sprouted under the Highway 101 freeway along the corridor known as Division Street. By early February, as many as 350 people were living in tents pitched along more than five city blocks. Later that month, the city began clearing out the camps, with the last big push occurring March 1. Since that date, The Chronicle has tracked the journeys of seven of the displaced Division Street campers. This map shows approximations of their travels to date.</div>
+    <div class="map-deck">During the winter of 2015-16, one of the biggest homeless encampments ever seen in San Francisco sprouted under the Highway 101 freeway along the corridor known as Division Street. By early February, as many as 350 people were living in tents pitched along more than five city blocks. Later that month, the city began clearing out the camps, with the last big push occurring March 1. Since that date, The Chronicle has tracked the journeys of seven of the displaced Division Street campers. This map shows approximations of their travels to date.</div>
   </div>
 
     <%= t.include("partials/_nav.html") %>
@@ -62,7 +62,7 @@
     <%= t.include("partials/_map_footer.html") %>
 
     <script>
-      var pathData = <%= JSON.stringify(csv.pathData) %>;
+      // var pathData = <%= JSON.stringify(csv.pathData) %>;
       var profileData = <%= JSON.stringify(csv.profileKeys) %>;
     </script>
 
