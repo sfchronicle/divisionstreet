@@ -12,6 +12,30 @@ path {
   stroke-width: 6px;
 }
 
+// .map-container {
+//   background-image: url("../assets/graphics/divisionmap_new.svg");
+//   background-size: 100% 100%;
+//   height: 1000px;
+//   svg {
+//     margin: auto;
+//   }
+// }
+
+.map_placeholder {
+  height: 1000px;
+}
+
+#map-container {
+  tspan {
+    font-family: @bold-graphics;
+    font-size: 14px;
+  }
+  text {
+    font-size: 10px;
+  }
+  // position: fixed;
+}
+
 .map-deck{
   max-width: 600px;
   font-size: 1em;
@@ -73,17 +97,6 @@ path {
   &:hover {
     background: lighten(@button-color,10%);
   }
-}
-
-#map-container {
-  tspan {
-    font-family: @bold-graphics;
-    font-size: 14px;
-  }
-  text {
-    font-size: 10px;
-  }
-  position: fixed;
 }
 
 .fa-angle-double-right, .fa-refresh {

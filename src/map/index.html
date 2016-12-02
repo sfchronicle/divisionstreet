@@ -30,6 +30,10 @@
 
     <%= t.include("partials/_nav.html") %>
 
+    <div id="map-container">
+      <%= t.include("assets/graphics/divisionmap_new.svg") %>
+    </div>
+
     <% csv.profileKeys.forEach(function(p,index) { %>
 
       <div class="profile-header">
@@ -40,6 +44,18 @@
         <img src= <%= p["photo"] %> ></img>
         <div class="caption"><%=p["photocaption"]%> <span class="byline"><%=p["photographer"]%>, The Chronicle</span></div>
       </div>
+
+      <div id="start<%=p["nameID"]%>">This is the start.</div>
+      <%=p["nameID"]%>Path
+      <% csv.GrayPath.forEach(function(event,eventindex) { %>
+        <div class="map-date"><%=event["date"]%></div>
+        <div class="map-text"><%=event["text"]%></div>
+      <% }); %>
+
+
+      <div id="end<%=p["nameID"]%>">This is the end.</div>
+
+
       <div class="inline-img">
         <div class='embed-container'><iframe src=<%=p["video"]%> frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
         <div class="caption"><%=p["videocaption"]%> <span class="byline"><%=p["videographer"]%>, The Chronicle</span></div>
@@ -55,11 +71,6 @@
       <div id="nextbutton"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
       <div id="refreshbutton"><i class="fa fa-refresh" aria-hidden="true"></i></div>
     </div>
-
-    <div id="map-container">
-      <%= t.include("assets/graphics/divisionmap_new.svg") %>
-    </div>
-
 
 
     <div id="stop-stick-here"></div>
