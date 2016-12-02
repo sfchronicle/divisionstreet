@@ -1,8 +1,21 @@
 #landing{
   margin-top:36px;
   position:relative;
+  background-image:url(http://ww4.hdnux.com/photos/55/14/64/11848995/3/2000x2000.jpg);
 }
-
+.dim {
+    display: block;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    opacity: 0.5;
+    height: 100%;
+    background-color: #000;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
 .video-wrapper{
 }
 
@@ -23,11 +36,12 @@
 }
 
 .deck{
-  max-width: 570px;
+  text-shadow:1px 0px 0px #000;
+  max-width: 550px;
   font-family: Georgia;
-  font-size: 0.85em;
+  font-size: 1em;
   margin:0.5em auto 0;
-  line-height: 1.4;
+  line-height: 1.2;
   &.map {
     margin-top: 30px;
   }
@@ -85,9 +99,9 @@
   -moz-border-radius: 4;
   border-radius: 4px;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 14px;
   background: #d93434;
-  padding: 10px 20px;
+  padding: 6px 12px;
   text-decoration: none;
   border:none;
   cursor:pointer;
@@ -100,4 +114,10 @@
     background:#b32d2d;
   }
 
+}
+
+.credits {
+  .group{
+    margin-bottom:1em;
+  }
 }
