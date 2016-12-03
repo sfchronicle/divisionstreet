@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="../style.css">
 
     <%= t.include("partials/_head.html") %>
+    <script src="http://projects.sfchronicle.com/shared/js/jquery.min.js"></script>
     <!-- <%= t.include("partials/_paywall.html") %> -->
 
   </head>
@@ -30,7 +31,7 @@
 
     <%= t.include("partials/_nav.html") %>
 
-    <div id="map-container">
+    <div class="map dontshow" id="map-container">
       <%= t.include("assets/graphics/divisionmap_new.svg") %>
     </div>
 
@@ -45,16 +46,16 @@
         <div class="caption"><%=p["photocaption"]%> <span class="byline"><%=p["photographer"]%>, The Chronicle</span></div>
       </div>
 
-      <div id="start<%=p["nameID"]%>">This is the start.</div>
-      <%=p["nameID"]%>Path
-      <% csv.GrayPath.forEach(function(event,eventindex) { %>
-        <div class="map-date"><%=event["date"]%></div>
-        <div class="map-text"><%=event["text"]%></div>
-      <% }); %>
-
-
-      <div id="end<%=p["nameID"]%>">This is the end.</div>
-
+      <div class="map-paths">
+        <div id="start<%=p["nameID"]%>"></div>
+        <% csv[p.nameID+"Path"].forEach(function(event,eventindex) { %>
+          <div class="map-group" id=person<%=index%>event<%=eventindex%>>
+            <div class="map-date"><%=event["date"]%></div>
+            <div class="map-text"><%=event["text"]%></div>
+          </div>
+        <% }); %>
+        <div id="end<%=p["nameID"]%>"></div>
+      </div>
 
       <div class="inline-img">
         <div class='embed-container'><iframe src=<%=p["video"]%> frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
@@ -78,8 +79,13 @@
     <%= t.include("partials/_map_footer.html") %>
 
     <script>
-      // var pathData = <%= JSON.stringify(csv.pathData) %>;
       var profileData = <%= JSON.stringify(csv.profileKeys) %>;
+      var GrayData = <%= JSON.stringify(csv.GrayPath) %>;
+      var BrownellData = <%= JSON.stringify(csv.BrownellPath) %>;
+      var MayweatherData = <%= JSON.stringify(csv.MayweatherPath) %>;
+      var McKinneyData = <%= JSON.stringify(csv.McKinneyPath) %>;
+      var QuinnData = <%= JSON.stringify(csv.QuinnPath) %>;
+      var SmirfData = <%= JSON.stringify(csv.SmirfPath) %>;
     </script>
 
     <script src="../map.js" async></script>

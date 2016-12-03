@@ -21,11 +21,52 @@ path {
 //   }
 // }
 
-.map_placeholder {
-  height: 1000px;
+.inline-img {
+  background: white;
+  .caption {
+    padding-bottom: 5px;
+  }
+}
+
+.map-paths {
+  padding: 100px 0;
+}
+
+.map-group {
+  font-family: @block-graphics;
+  .map-date {
+    font-family: @bold-graphics;
+  }
+  .map-text {
+    font-style: italic;
+    line-height: 1.2;
+    font-size: 17px;
+    padding-top: 10px;
+  }
+  width: 30%;
+  margin-left: 60%;
+  margin-right: 20px;
+  margin-bottom: 200px;
+  opacity: 1;
+  z-index: 100;
+  padding: 20px;
+  background: white;
+  opacity: 0.5;
+  &.active {
+    opacity: 1;
+  }
 }
 
 #map-container {
+  display: block;
+  position: fixed;
+  height: 1000px;
+  width: 100%;
+  top: 0;
+  z-index: -100;
+  &.dontshow {
+    display: none;
+  }
   tspan {
     font-family: @bold-graphics;
     font-size: 14px;

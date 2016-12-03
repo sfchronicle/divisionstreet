@@ -1,9 +1,118 @@
 require("./lib/social"); //Do not delete
+// var $ = require("jquery");
 
+var profileOrder = ["Quinn","Gray","McKinney","Brownell","Mayweather","Smirf"];
+
+// variables for path drawing
+var orig,length,timer;
+var distancePerPoint = 1;
+var drawFPS          = 100;
+
+// functions for path drawing
+function startDrawingPath(){
+  length = 0;
+  console.log(routeID);
+  if (routeID == "QuinnRoute") {
+    orig.style.stroke = '#CF5EA3';
+  } else if (routeID == "GrayRoute") {
+    orig.style.stroke = '#E5B76B';
+  } else if (routeID == "McKinneyRoute") {
+    orig.style.stroke = '#21A466';
+  } else if (routeID == "BrownellRoute") {
+    orig.style.stroke = '#E14940';
+  } else if (routeID == "MayweatherRoute") {
+    orig.style.stroke = '#34C1D5';
+  } else if (routeID == "PaPaSmirfRoute") {
+    orig.style.stroke = '#0085BB';
+  }
+  orig.style["stroke-opacity"] = 1;
+  timer = setInterval(increaseLength,1000/drawFPS);
+}
+
+function increaseLength(){
+  if (orig.getTotalLength()) {
+    var pathLength = orig.getTotalLength();
+    length += distancePerPoint;
+    orig.style.strokeDasharray = [length,pathLength].join(' ');
+    if (length >= pathLength) clearInterval(timer);
+  }
+}
+
+// initializing for the path drawing (for Quinn)
+var i = 0;
+var routeID = "QuinnRoute";
+orig = document.getElementById(routeID);
+var childrenOrig = orig.childNodes;
+console.log(childrenOrig);
+var childrenList = [];
+for (var ii=0; ii<childrenOrig.length; ii++) {
+  if (childrenOrig[ii]["nodeName"] == "path"){
+    childrenList.push(childrenOrig[ii]);
+  }
+}
+childrenList = childrenList.reverse();
+console.log(childrenList.length);
+// console.log(childrenList);
+// orig = childrenList[i];
+
+var idx_old = 0;
+var state_var = "invisible";
+$(window).scroll(function(){
+  var pos = $(this).scrollTop();
+
+  // Show map for Quinn route
+  var Quinnstart = $('#startQuinn').offset().top-600;
+  var Quinnend = $('#endQuinn').offset().top-100;
+  // $("#map-container").offset().top = pos;
+  console.log(state_var);
+  if ((pos > Quinnstart && pos < Quinnend) && state_var != "visible" ) {
+    // console.log(state_var);
+    console.log("changing to be visible");
+    state_var = "visible";
+    $("#map-container").offset().top = pos;
+    $("#map-container").toggleClass("dontshow");
+
+  } else if (pos >= Quinnend && state_var != "invisible") {
+    console.log("changing to be invisible");
+    state_var = "invisible";
+    $("#map-container").toggleClass("dontshow");
+  } else if (pos <= Quinnstart && state_var != "invisible"){
+    console.log("changing to be invisible");
+    state_var = "invisible";
+    $("#map-container").toggleClass("dontshow");
+  }
+
+  if (state_var == "visible") {
+
+    var QuinnLen = QuinnData.length-1;
+    [0,1,2,3,4,5,6].forEach(function(d,idx){
+      $("#person0event"+d).removeClass("active");
+    });
+    console.log("pos is:");
+    console.log(pos);
+    console.log("Quinnstart is:");
+    console.log(Quinnstart);
+    idx_old = idx;
+    var idx = Math.round((pos-(Quinnstart+400))/ 200);
+    console.log("index is:");
+    console.log(idx);
+
+    if (idx < QuinnLen && idx >= 0) {
+      $("#person0event"+idx).addClass("active");
+    } else {
+      $('#person0event'+QuinnLen).addClass("active");
+    }
+
+    orig = childrenList[idx];
+    if (orig && (idx != idx_old)) {
+      console.log("this is a new line");
+      startDrawingPath();
+    }
+
+  }
+});
 //
-// var orig,length,timer;
-// var distancePerPoint = 1;
-// var drawFPS          = 60;
+
 //
 // var currentData = [];
 // var dates_list = [], svg_list = [], text_list = [];
@@ -96,32 +205,7 @@ require("./lib/social"); //Do not delete
 //   document.querySelector(".timeline-text").innerHTML = `<strong>${text}</strong>`;
 // };
 //
-// function startDrawingPath(){
-//   length = 0;
-//   console.log(routeID);
-//   if (routeID == "QuinnRoute") {
-//     orig.style.stroke = '#CF5EA3';
-//   } else if (routeID == "GrayRoute") {
-//     orig.style.stroke = '#E5B76B';
-//   } else if (routeID == "McKinneyRoute") {
-//     orig.style.stroke = '#21A466';
-//   } else if (routeID == "BrownellRoute") {
-//     orig.style.stroke = '#E14940';
-//   } else if (routeID == "MayweatherRoute") {
-//     orig.style.stroke = '#34C1D5';
-//   } else if (routeID == "PaPaSmirfRoute") {
-//     orig.style.stroke = '#0085BB';
-//   }
-//   orig.style["stroke-opacity"] = 1;
-//   timer = setInterval(increaseLength,1000/drawFPS);
-// }
-//
-// function increaseLength(){
-//   var pathLength = orig.getTotalLength();
-//   length += distancePerPoint;
-//   orig.style.strokeDasharray = [length,pathLength].join(' ');
-//   if (length >= pathLength) clearInterval(timer);
-// }
+
 //
 // var looping = true;
 // var currentData = pathData.filter(function(x){return x.personID == 0});
