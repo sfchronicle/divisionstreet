@@ -1,6 +1,8 @@
 require("./lib/social"); //Do not delete
+require("snapsvg");
 // var $ = require("jquery");
 
+// list of all the characters in the story
 var profileOrder = ["Quinn","Gray","McKinney","Brownell","Mayweather","Smirf"];
 
 // variables for path drawing
@@ -10,12 +12,16 @@ var profileOrder = ["Quinn","Gray","McKinney","Brownell","Mayweather","Smirf"];
 // var drawFPS          = 100;
 
 var svgElement = document.querySelector("#svgID");
+var s = Snap("#svgID");
 
+// function for zooming and panning
 function zoom(panHoriz,panVert,zoomVal){
 
   // get current viewBox attributes
   var viewBox = svgElement.getAttribute('viewBox');
+  console.log(viewBox);
   var viewBoxValues = viewBox.split(' ');
+  console.log(viewBoxValues);
 
   // values for panning
   viewBoxValues[0] = parseFloat(viewBoxValues[0]);
@@ -32,14 +38,27 @@ function zoom(panHoriz,panVert,zoomVal){
   // apply new viewBox attributes
   console.log(viewBoxValues.join(" "));
   svgElement.setAttribute('viewBox', viewBoxValues.join(' '));
+
+  // workaround, generate an animation fragment (to test browser support)
+  // var m = '<animate id="svgID" attributeName="viewBox" begin="1s" dur="5s" values="'+viewBoxValues.join(" ")+'" fill="freeze" />';
+  // var o = Snap.parse(m);
+  // s.add(o);
+  // Snap.animate(svgElement.attr("viewBox").vb.split(" "), [ x, y, width, height ], function(values){ p.attr("viewBox", values.join(" "); }, duration ms, easing)
+  // s.animate({viewBox: viewBoxValues.join(' ') },500);
+  // console.log(s);
 }
 
+// initializing parameters
 var orig, bounds;
+var panHoriz = 0, panVert = 0, scaleVal = 1;
 
-// functions for path drawing
+// hightlight the part of the journey by highlighting the path and zooming the map
 function drawPath(orig,routeID){
-  console.log("drawing a path");
-  length = 0;
+
+  // reset the zoom to original location to make transformations easier
+  zoom(-panHoriz,-panVert,1/scaleVal);
+
+  // highlight the appropriate path with the appropriate color
   console.log(routeID);
   if (routeID == "QuinnRoute") {
     orig.style.stroke = '#CF5EA3';
@@ -55,25 +74,43 @@ function drawPath(orig,routeID){
     orig.style.stroke = '#0085BB';
   }
   orig.style["stroke-opacity"] = 1;
+
+  // zoom and pan the SVG
   bounds = orig.getBoundingClientRect();
   console.log("bounds are: ");
   console.log(bounds);
-  // try to zoom svg
-
-  console.log(svgElement);
-  // var translateValue = "translate("+ xval + "," + yval + ")";
-  // console.log(translateValue);
-  // svgElement.setAttribute("transform",translateValue);
   var windowHeight = $(window).height();
   var pathHeight = bounds.height;
-  var scaleVal = 0.99;//pathHeight/windowHeight;
-  console.log("scaleVal is: ")
-  console.log(scaleVal);
+  if ((bounds.height > 300) || (bounds.width > 300)){
+    console.log("this is one of the long paths");
+    scaleVal = 1.1;
+    panHoriz = 150;
+    panVert = 10;
+    zoom(panHoriz,panVert,scaleVal);
+  } else if (bounds.height < 50){
+    console.log("this is a very short path");
+    scaleVal = 0.6;
+    panHoriz = 250;
+    panVert = 130;
+    zoom(panHoriz,panVert,scaleVal);
+  } else {
+    console.log("this is one of the short paths");
+    scaleVal = 0.9;
+    panHoriz = 10;
+    panVert = 0;
+    zoom(panHoriz,panVert,scaleVal);
+  }
+  // console.log("pathHeight is: ");
+  // console.log(pathHeight);
+  // console.log("windowHeight is: ");
+  // console.log(windowHeight);
+  // scaleVal = 0.7/(1-(pathHeight/windowHeight));//0.99;
+  // console.log("scaleVal is: ")
+  // console.log(scaleVal);
+  // panHoriz = 20;
+  // panVert = 0;
+  // zoom(panHoriz,panVert,scaleVal);
 
-  var panHoriz = 0;
-  var panVert = 0;
-
-  zoom(panHoriz,panVert,scaleVal);
   // var timer = setInterval(increaseLength,1000/drawFPS);
   // if (length >= pathLength){
   //   console.log("clearing the timer");
@@ -139,7 +176,6 @@ $(window).scroll(function(){
           if (previousChildren){
             console.log("clearing the paths");
             previousChildren.forEach(function(d,idx){
-              console.log(d);
               d.style["stroke-opacity"] = 0.3;
             });
           }
@@ -208,7 +244,7 @@ $(window).scroll(function(){
           orig = childrenList[idx];
           idx_old = idx;
           // clearInterval(timer);
-          drawPath(orig);
+          drawPath(orig,routeID);
         } else if (idx < (SectionLen-2)) {
           console.log("hiding paths");
           if (childrenList[idx-1]) {
