@@ -5,9 +5,11 @@ var profileOrder = ["Quinn","Gray","McKinney","Brownell","Mayweather","Smirf"];
 
 // variables for path drawing
 // var orig,length,timer;
-var orig,length;
-var distancePerPoint = 1;
-var drawFPS          = 100;
+// var orig,length;
+// var distancePerPoint = 1;
+// var drawFPS          = 100;
+
+var orig;
 
 // functions for path drawing
 function drawPath(orig,routeID){
@@ -55,6 +57,8 @@ function drawPath(orig,routeID){
 var idx_old = -1;
 var state_var = "invisible";
 var pos_prev = 0;
+var previousChildren;
+
 $(window).scroll(function(){
 
   var pos = $(this).scrollTop();
@@ -72,7 +76,6 @@ $(window).scroll(function(){
 
   profileOrder.forEach(function(p,pdx){
       // Show map for Quinn route
-      console.log(['#start'+p]);
       var SectionStart = $('#start'+p).offset().top-600;
       var SectionEnd = $('#end'+p).offset().top-100;
       // $("#map-container").offset().top = pos;
@@ -89,11 +92,13 @@ $(window).scroll(function(){
 
         if (activeProfile != activeProfilePrevious){
           console.log("we are entering a new section");
-          var N = SectionLen;
-          var Nlist = Array.apply(null, {length: N}).map(Number.call, Number);
-          Nlist.forEach(function(d,idx){
-            $("#person"+activeProfileIdx+"event"+d).removeClass("active");
-          });
+          if (previousChildren){
+            console.log("clearing the paths");
+            previousChildren.forEach(function(d,idx){
+              console.log(d);
+              d.style["stroke-opacity"] = 0.3;
+            });
+          }
           idx_old = -1;
         }
 
@@ -119,6 +124,7 @@ $(window).scroll(function(){
         }
       }
       childrenList = childrenList.reverse();
+      previousChildren = childrenList;
       console.log(childrenList.length);
 
       var SectionLen = childrenList.length;
