@@ -4,12 +4,14 @@ require("./lib/social"); //Do not delete
 var profileOrder = ["Quinn","Gray","McKinney","Brownell","Mayweather","Smirf"];
 
 // variables for path drawing
-var orig,length,timer;
+// var orig,length,timer;
+var orig,length;
 var distancePerPoint = 1;
 var drawFPS          = 100;
 
 // functions for path drawing
-function startDrawingPath(){
+function drawPath(orig){
+  console.log("drawing a path");
   length = 0;
   console.log(routeID);
   if (routeID == "QuinnRoute") {
@@ -26,24 +28,42 @@ function startDrawingPath(){
     orig.style.stroke = '#0085BB';
   }
   orig.style["stroke-opacity"] = 1;
-  timer = setInterval(increaseLength,1000/drawFPS);
+  // var timer = setInterval(increaseLength,1000/drawFPS);
+  // if (length >= pathLength){
+  //   console.log("clearing the timer");
+  //   clearInterval(timer);
+  // }
+}
+
+function stopDrawingPath(){
+  clearInterval(timer);
+  // orig.style.stroke = '';
+  // orig.style.strokeDasharray = '';
+  var pathLength = orig.getTotalLength();
+  orig.style.strokeDasharray = pathLength;
 }
 
 function increaseLength(){
-  if (orig.getTotalLength()) {
+  // console.log(orig);
+  console.log("increasing length");
+  // if (orig){
     var pathLength = orig.getTotalLength();
+    console.log(pathLength);
     length += distancePerPoint;
+    console.log(length);
     orig.style.strokeDasharray = [length,pathLength].join(' ');
-    if (length >= pathLength) clearInterval(timer);
-  }
+    if (length >= pathLength){
+      console.log("clearing the timer");
+      clearInterval(timer);
+    }
+  // }
 }
 
 // initializing for the path drawing (for Quinn)
 var i = 0;
-var routeID = "QuinnRoute";
-orig = document.getElementById(routeID);
-var childrenOrig = orig.childNodes;
-console.log(childrenOrig);
+var routeID = "GrayRoute";
+var routes = document.getElementById(routeID);
+var childrenOrig = routes.childNodes;
 var childrenList = [];
 for (var ii=0; ii<childrenOrig.length; ii++) {
   if (childrenOrig[ii]["nodeName"] == "path"){
@@ -55,61 +75,113 @@ console.log(childrenList.length);
 // console.log(childrenList);
 // orig = childrenList[i];
 
-var idx_old = 0;
+var idx_old = -1;
 var state_var = "invisible";
+var pos_prev = 0;
 $(window).scroll(function(){
+
   var pos = $(this).scrollTop();
-
-  // Show map for Quinn route
-  var Quinnstart = $('#startQuinn').offset().top-600;
-  var Quinnend = $('#endQuinn').offset().top-100;
-  // $("#map-container").offset().top = pos;
-  console.log(state_var);
-  if ((pos > Quinnstart && pos < Quinnend) && state_var != "visible" ) {
-    // console.log(state_var);
-    console.log("changing to be visible");
-    state_var = "visible";
-    $("#map-container").offset().top = pos;
-    $("#map-container").toggleClass("dontshow");
-
-  } else if (pos >= Quinnend && state_var != "invisible") {
-    console.log("changing to be invisible");
-    state_var = "invisible";
-    $("#map-container").toggleClass("dontshow");
-  } else if (pos <= Quinnstart && state_var != "invisible"){
-    console.log("changing to be invisible");
-    state_var = "invisible";
-    $("#map-container").toggleClass("dontshow");
+  if ((pos-pos_prev) > 0){
+    var direction = "down"
+  } else {
+    var direction = "up"
   }
 
-  if (state_var == "visible") {
+  ["Gray"].forEach(function(p,pdx){
 
-    var QuinnLen = QuinnData.length-1;
-    [0,1,2,3,4,5,6].forEach(function(d,idx){
-      $("#person0event"+d).removeClass("active");
-    });
-    console.log("pos is:");
-    console.log(pos);
-    console.log("Quinnstart is:");
-    console.log(Quinnstart);
-    idx_old = idx;
-    var idx = Math.round((pos-(Quinnstart+400))/ 200);
-    console.log("index is:");
-    console.log(idx);
+    pdx=1;
 
-    if (idx < QuinnLen && idx >= 0) {
-      $("#person0event"+idx).addClass("active");
-    } else {
-      $('#person0event'+QuinnLen).addClass("active");
+    // Show map for Quinn route
+    console.log(['#start'+p]);
+    var SectionStart = $('#start'+p).offset().top-600;
+    var SectionEnd = $('#end'+p).offset().top-100;
+    // $("#map-container").offset().top = pos;
+    console.log(state_var);
+    if ((pos > SectionStart && pos < SectionEnd) && state_var != "visible" ) {
+      // console.log(state_var);
+      console.log("changing to be visible");
+      state_var = "visible";
+      $("#map-container").offset().top = pos;
+      $("#map-container").toggleClass("dontshow");
+
+    } else if (pos >= SectionEnd && state_var != "invisible") {
+      console.log("changing to be invisible");
+      state_var = "invisible";
+      $("#map-container").toggleClass("dontshow");
+      // var idx_old = -1;
+    } else if (pos <= SectionStart && state_var != "invisible"){
+      console.log("changing to be invisible");
+      state_var = "invisible";
+      $("#map-container").toggleClass("dontshow");
+      // var idx_old = -1;
     }
 
-    orig = childrenList[idx];
-    if (orig && (idx != idx_old)) {
-      console.log("this is a new line");
-      startDrawingPath();
+    if (state_var == "visible") {
+
+      var SectionLen = 6;//$(p+"Data").length;
+      [0,1,2,3,4,5,6].forEach(function(d,idx){
+        $("#person"+pdx+"event"+d).removeClass("active");
+      });
+      // idx_old = idx;
+      var idx = Math.round((pos-(SectionStart+SectionLen*100))/ 300);
+      if (idx == -0) { idx = 0};
+      console.log(idx);
+
+      if (idx < SectionLen && idx >= 0) {
+        $("#person"+pdx+"event"+idx).addClass("active");
+      } else {
+        $("#person"+pdx+"event"+SectionLen).addClass("active");
+      }
+
+      // if (orig) {
+      //   stopDrawingPath();
+      // }
+      // if (idx == SectionLen) {
+      //   console.log("on the last thing");
+      //   orig = childrenList[idx];
+      //   drawPath(orig);
+      //   // idx_old = idx+1;
+      // }
+
+      if (idx != idx_old) {
+        if (childrenList[idx] && (idx > idx_old)){
+          orig = childrenList[idx];
+          idx_old = idx;
+          // clearInterval(timer);
+          drawPath(orig);
+        } else if (idx < (SectionLen-2)) {
+          console.log("hiding paths");
+          if (childrenList[idx-1]) {
+            console.log("erasing");
+            console.log(idx-1);
+            childrenList[idx-1].style["stroke-opacity"] = 0.3;
+            idx_old = idx;
+          }
+          // var N = idx;
+          // idx_old = idx;
+          // var Nlist = Array.apply(null, {length: N}).map(Number.call, Number);
+          // console.log(Nlist);
+          // Nlist.forEach(function(n){
+          //     childrenList[n].style["stroke-opacity"] = 0.3;
+          // });
+        }
+        console.log("idx = ");
+        console.log(idx);
+        console.log("old idx = ");
+        console.log(idx_old);
+
+      }
+
+      // this is not working!!!
+      // if (idx < idx_old) {
+      //   if (childrenList[idx_old]){
+      //     childrenList[idx_old].style["stroke-opacity"] = 0.3;
+      //   }
+      // }
+
     }
 
-  }
+  });
 });
 //
 
