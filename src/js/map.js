@@ -9,7 +9,32 @@ var profileOrder = ["Quinn","Gray","McKinney","Brownell","Mayweather","Smirf"];
 // var distancePerPoint = 1;
 // var drawFPS          = 100;
 
-var orig;
+var svgElement = document.querySelector("#svgID");
+
+function zoom(panHoriz,panVert,zoomVal){
+
+  // get current viewBox attributes
+  var viewBox = svgElement.getAttribute('viewBox');
+  var viewBoxValues = viewBox.split(' ');
+
+  // values for panning
+  viewBoxValues[0] = parseFloat(viewBoxValues[0]);
+  viewBoxValues[1] = parseFloat(viewBoxValues[1]);
+  viewBoxValues[0] += panHoriz;
+  viewBoxValues[1] += panVert;
+
+  // values for zooming
+  viewBoxValues[2] = parseFloat(viewBoxValues[2]);
+  viewBoxValues[3] = parseFloat(viewBoxValues[3]);
+  viewBoxValues[2] *= zoomVal;	// Increase the width and height attributes of the viewBox attribute to zoom out.
+  viewBoxValues[3] *= zoomVal;
+
+  // apply new viewBox attributes
+  console.log(viewBoxValues.join(" "));
+  svgElement.setAttribute('viewBox', viewBoxValues.join(' '));
+}
+
+var orig, bounds;
 
 // functions for path drawing
 function drawPath(orig,routeID){
@@ -30,6 +55,25 @@ function drawPath(orig,routeID){
     orig.style.stroke = '#0085BB';
   }
   orig.style["stroke-opacity"] = 1;
+  bounds = orig.getBoundingClientRect();
+  console.log("bounds are: ");
+  console.log(bounds);
+  // try to zoom svg
+
+  console.log(svgElement);
+  // var translateValue = "translate("+ xval + "," + yval + ")";
+  // console.log(translateValue);
+  // svgElement.setAttribute("transform",translateValue);
+  var windowHeight = $(window).height();
+  var pathHeight = bounds.height;
+  var scaleVal = 0.99;//pathHeight/windowHeight;
+  console.log("scaleVal is: ")
+  console.log(scaleVal);
+
+  var panHoriz = 0;
+  var panVert = 0;
+
+  zoom(panHoriz,panVert,scaleVal);
   // var timer = setInterval(increaseLength,1000/drawFPS);
   // if (length >= pathLength){
   //   console.log("clearing the timer");
