@@ -31,19 +31,21 @@
 
     <%= t.include("partials/_nav.html") %>
 
-    <div class="map dontshow" id="map-container">
+    <div class="map" id="map-container">
       <%= t.include("assets/graphics/divisionmap_new.svg") %>
     </div>
 
     <% csv.profileKeys.forEach(function(p,index) { %>
 
-      <div class="profile-header">
-        <div class="profile-name person<%=index%>"><%=p["name"]%></div>
-        <div class="profile-desc"><%=p["description"]%></div>
-      </div>
-      <div class="inline-img">
-        <img src= <%= p["photo"] %> ></img>
-        <div class="caption"><%=p["photocaption"]%> <span class="byline"><%=p["photographer"]%>, The Chronicle</span></div>
+      <div class="inline-img-container">
+        <div class="profile-header">
+          <div class="profile-name person<%=index%>"><%=p["name"]%></div>
+          <div class="profile-desc"><%=p["description"]%></div>
+        </div>
+        <div class="inline-img">
+          <img src= <%= p["photo"] %> ></img>
+          <div class="caption"><%=p["photocaption"]%> <span class="byline"><%=p["photographer"]%>, The Chronicle</span></div>
+        </div>
       </div>
 
       <div class="map-paths">
@@ -57,26 +59,18 @@
         <div id="end<%=p["nameID"]%>"></div>
       </div>
 
-      <div class="inline-img">
-        <div class='embed-container'><iframe src=<%=p["video"]%> frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
-        <div class="caption"><%=p["videocaption"]%> <span class="byline"><%=p["videographer"]%>, The Chronicle</span></div>
-    </div>
-
-
+      <div class="inline-img-container">
+        <div class="inline-img">
+          <div class='embed-container'><iframe src=<%=p["video"]%> frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div>
+          <div class="caption"><%=p["videocaption"]%> <span class="byline"><%=p["videographer"]%>, The Chronicle</span></div>
+        </div>
+      </div>
 
     <% }); %>
 
-    <div class="timeline-info">
-      <div class="timeline-date"></div>
-      <div class="timeline-text"></div>
-      <div id="nextbutton"><i class="fa fa-angle-double-right" aria-hidden="true"></i></div>
-      <div id="refreshbutton"><i class="fa fa-refresh" aria-hidden="true"></i></div>
+    <div class="footer-container">
+      <%= t.include("partials/_map_footer.html") %>
     </div>
-
-
-    <div id="stop-stick-here"></div>
-
-    <%= t.include("partials/_map_footer.html") %>
 
     <script>
       var profileData = <%= JSON.stringify(csv.profileKeys) %>;
