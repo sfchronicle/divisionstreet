@@ -1,6 +1,7 @@
 require("./lib/social"); //Do not delete
-require("snapsvg");
+
 // var $ = require("jquery");
+require("velocity-animate");
 
 // list of all the characters in the story
 var profileOrder = ["Quinn","Gray","McKinney","Brownell","Mayweather","Smirf"];
@@ -12,16 +13,16 @@ var profileOrder = ["Quinn","Gray","McKinney","Brownell","Mayweather","Smirf"];
 // var drawFPS          = 100;
 
 var svgElement = document.querySelector("#svgID");
-var s = Snap("#svgID");
+// var s = Snap("#svgID");
 
 // function for zooming and panning
 function zoom(panHoriz,panVert,zoomVal){
 
   // get current viewBox attributes
   var viewBox = svgElement.getAttribute('viewBox');
-  console.log(viewBox);
+  // console.log(viewBox);
   var viewBoxValues = viewBox.split(' ');
-  console.log(viewBoxValues);
+  // console.log(viewBoxValues);
 
   // values for panning
   viewBoxValues[0] = parseFloat(viewBoxValues[0]);
@@ -36,8 +37,24 @@ function zoom(panHoriz,panVert,zoomVal){
   viewBoxValues[3] *= zoomVal;
 
   // apply new viewBox attributes
-  console.log(viewBoxValues.join(" "));
-  svgElement.setAttribute('viewBox', viewBoxValues.join(' '));
+  // console.log(viewBoxValues.join(" "));
+  // svgElement.setAttribute('viewBox', viewBoxValues.join(' '));
+  // $("#svgID").velocity({viewBox: iewBoxValues.join(' ') },"easeInSine");
+  $("#svgID").velocity({scale: zoomVal,
+    translateX: panHoriz,
+    translateY: panVert},{duration:10});
+  console.log("this was a thing");
+  // $("#svgID").velocity({translateX: 10},{duration:100});
+  // console.log("this was another thing");
+
+  // $("#svgID").velocity(
+  //   { tween: 200 },
+  //   { progress: animViewbox }
+  // )
+  //
+  // function animViewbox (elements, complete, remaining, start, tweenValue) {
+  //      elements[0].setAttribute('viewBox', viewBoxValues.join(' '));
+  // }
 
   // workaround, generate an animation fragment (to test browser support)
   // var m = '<animate id="svgID" attributeName="viewBox" begin="1s" dur="5s" values="'+viewBoxValues.join(" ")+'" fill="freeze" />';
@@ -50,16 +67,26 @@ function zoom(panHoriz,panVert,zoomVal){
 
 // initializing parameters
 var orig, bounds;
-var panHoriz = 0, panVert = 0, scaleVal = 1;
+var panHoriz = 0, panVert = 0, scaleVal = 1, Nzoom = 1;
+
+function interpolateZoom(panHoriz,panVert,scaleVal,N){
+  var Niter = Array.apply(null, {length: N}).map(Number.call, Number);
+  Niter.forEach(function(){
+    var scalefactor = Math.pow(scaleVal,1/N);
+    zoom(panHoriz/N,panVert/N,scalefactor);
+    var reflow = svgElement.offsetWidth;
+  });
+
+}
 
 // hightlight the part of the journey by highlighting the path and zooming the map
 function drawPath(orig,routeID){
 
   // reset the zoom to original location to make transformations easier
-  zoom(-panHoriz,-panVert,1/scaleVal);
+  // zoom(-panHoriz,-panVert,1/scaleVal);
 
   // highlight the appropriate path with the appropriate color
-  console.log(routeID);
+  // console.log(routeID);
   if (routeID == "QuinnRoute") {
     orig.style.stroke = '#CF5EA3';
   } else if (routeID == "GrayRoute") {
@@ -77,28 +104,32 @@ function drawPath(orig,routeID){
 
   // zoom and pan the SVG
   bounds = orig.getBoundingClientRect();
-  console.log("bounds are: ");
-  console.log(bounds);
   var windowHeight = $(window).height();
   var pathHeight = bounds.height;
   if ((bounds.height > 300) || (bounds.width > 300)){
     console.log("this is one of the long paths");
     scaleVal = 1.1;
-    panHoriz = 150;
-    panVert = 10;
-    zoom(panHoriz,panVert,scaleVal);
+    panHoriz = "50px";
+    panVert = "10px";
+    Nzoom = 1;
+    // interpolateZoom(panHoriz,panVert,scaleVal,Nzoom);
+    zoom(panHoriz,panVert,1/scaleVal);
   } else if (bounds.height < 50){
     console.log("this is a very short path");
     scaleVal = 0.6;
-    panHoriz = 250;
-    panVert = 130;
-    zoom(panHoriz,panVert,scaleVal);
+    panHoriz = "250px";
+    panVert = "200px";
+    Nzoom = 1;
+    zoom(panHoriz,panVert,1/scaleVal);
+    // interpolateZoom(panHoriz,panVert,scaleVal,Nzoom);
   } else {
     console.log("this is one of the short paths");
     scaleVal = 0.9;
-    panHoriz = 10;
+    panHoriz = "10px";
     panVert = 0;
-    zoom(panHoriz,panVert,scaleVal);
+    Nzoom = 1;
+    zoom(panHoriz,panVert,1/scaleVal);
+    // interpolateZoom(panHoriz,panVert,scaleVal,Nzoom);
   }
   // console.log("pathHeight is: ");
   // console.log(pathHeight);
