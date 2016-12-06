@@ -115,7 +115,7 @@ $(window).scroll(function(){
       $("#person"+activeProfileIdx+"event"+d).removeClass("active");
     });
 
-    var idx = Math.round((pos-(activeSectionStart+SectionLen*100))/ 300);
+    var idx = Math.round((pos-(activeSectionStart+SectionLen*80))/ 300);
     if (idx == -0) { idx = 0};
 
     if (idx < SectionLen && idx >= 0) {
