@@ -1,16 +1,23 @@
 {
-  "title": "",
-  "description": "",
-  "seo_title": "",
+  "title": "No easy path to ending tent cities",
+  "description": "SF Homeless Project: Division Street saga proves that the path to halting large encampments in San Francisco won't be simple.",
+  "seo_title": "In San Francisco, no easy path to ending tent cities",
   "author":"kevin fagan, lea suzuki, lucio villa",
   "hearst_category":"metro",
-  "date":"2016-12-05",
+  "date":"2016-12-07",
   "url": "http://projects.sfchronicle.com/sf-homeless/",
-  "slug": "division/",
-  "twitter_text":"",
-  "hashtag":"",
+  "slug": "division-street/",
+  "twitter_text":"Division Street saga proves the path to ending SF tent cities isn't easy.",
+  "hashtag":"sfhomelessproject",
   "image": "assets/social.jpg",
   "sheets": [],
   "production": false,
-  "embedded": false
+  "embedded": false,
+
+  "map_seo_title": "SF’s Division Street tent city diaspora: 7 lives, 7 paths, little change",
+  "map_title": "Division Street diaspora: Tracing 7 journeys",
+  "map_description": "SF Homeless Project: Follow the paths of seven homeless people after the clearing of San Francisco's most notorious tent city.",
+  "map_slug": "division-street-map/",
+  "map_image": "assets/map-social.jpg",
+  "map_twitter_text": "Interactive: Follow the journeys of 7 homeless people around SF after tent city's breakup."
 }

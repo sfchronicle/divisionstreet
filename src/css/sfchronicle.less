@@ -243,11 +243,15 @@ text {
 
 .over-img {
   position: absolute;
-  bottom: 160px;
+  bottom: 10%;
   z-index: 2;
   color: white;
   left: 0;
   right: 0;
+
+  @media @mobile{
+    bottom:20%;
+  }
 }
 
 .specialhead-top {
@@ -406,7 +410,7 @@ header {
     z-index: 1;
 
     @media @mobile {
-      height: 640px;
+      height: 600px;
     }
 }
 
