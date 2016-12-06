@@ -12,7 +12,7 @@ function zoom(panHoriz,panVert,zoomVal){
   // svgElement.setAttribute('viewBox', viewBoxValues.join(' '));
   $("#svgID").velocity("stop",true).velocity({scale: zoomVal,
     translateX: panHoriz,
-    translateY: panVert},{duration:10,loop:false});
+    translateY: panVert},{duration:1000,loop:false});
 }
 
 // initializing parameters
@@ -115,7 +115,11 @@ $(window).scroll(function(){
       $("#person"+activeProfileIdx+"event"+d).removeClass("active");
     });
 
-    var idx = Math.round((pos-(activeSectionStart+SectionLen*80))/ 300);
+    if (screen.width <=480){
+      var idx = Math.round((pos-(activeSectionStart+SectionLen*80))/ 300);
+    } else {
+      var idx = Math.round((pos-(activeSectionStart+SectionLen*80))/ 300);
+    }
     if (idx == -0) { idx = 0};
 
     if (idx < SectionLen && idx >= 0) {
