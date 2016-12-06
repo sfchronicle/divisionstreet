@@ -42,14 +42,9 @@ function drawPath(orig,routeID){
   bounds = orig.getBoundingClientRect();
   var windowHeight = $(window).height();
   var pathLength = Math.sqrt(bounds.height*bounds.height+bounds.width*bounds.width);
-  scaleVal = 0.9;
+  scaleVal = (1-pathLength/windowHeight)*0.6+0.7;
   panHoriz = "0px";
   panVert = "0px";
-  // console.log("this is the scaleVal");
-  // scaleVal = (1/scaleVal)*(1-pathLength/windowHeight);
-  // console.log(scaleVal);
-  // panHoriz = (10-panHoriz)+"px";
-  // panVert = (0-panVert)+"px";
   zoom(panHoriz,panVert,scaleVal);
 }
 
