@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../style.css">
 
-    <%= t.include("partials/_head.html") %>
+    <%= t.include("partials/_map-head.html") %>
     <script src="http://projects.sfchronicle.com/shared/js/jquery.min.js"></script>
     <!-- <%= t.include("partials/_paywall.html") %> -->
 
@@ -32,7 +32,7 @@
     <%= t.include("partials/_nav.html") %>
 
     <div class="map" id="map-container">
-      <%= t.include("assets/graphics/divisionmap_new.svg") %>
+      <%= t.include("assets/graphics/newmap/divisionmap_nofade1.svg") %>
     </div>
 
     <% csv.profileKeys.forEach(function(p,index) { %>
@@ -42,10 +42,84 @@
           <div class="profile-name person<%=index%>"><%=p["name"]%></div>
           <div class="profile-desc"><%=p["description"]%></div>
         </div>
-        <div class="inline-img">
-          <img src= <%= p["photo"] %> ></img>
-          <div class="caption"><%=p["photocaption"]%> <span class="byline"><%=p["photographer"]%>, The Chronicle</span></div>
-        </div>
+        <% if (p.nameID == "Gray") { %>
+          <div class="photo-gallery0">
+            <div class="scroll-left-gallery0 first" id="scroll-left-gallery0"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+            <div class="scroll-right-gallery0" id="scroll-right-gallery0"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+            <% for (var idx=0; idx < 6; idx++) { %>
+              <% if (idx == 0){ %>
+                <div class="photo_g0 active" id="photo_g00"></div>
+              <% } else { %>
+                <div class="photo_g0" id=photo_g0<%=idx%>></div>
+              <% } %>
+            <% } %>
+          </div>
+        <% } else if (p.nameID == "McKinney") { %>
+          <div class="photo-gallery1">
+            <div class="scroll-left-gallery1 first" id="scroll-left-gallery1"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+            <div class="scroll-right-gallery1" id="scroll-right-gallery1"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+            <% for (var idx=0; idx < 5; idx++) { %>
+              <% if (idx == 0){ %>
+                <div class="photo_g1 active" id="photo_g10"></div>
+              <% } else { %>
+                <div class="photo_g1" id=photo_g1<%=idx%>></div>
+              <% } %>
+            <% } %>
+          </div>
+        <% } else if (p.nameID == "Brownell") { %>
+          <div class="photo-gallery2">
+            <div class="scroll-left-gallery2 first" id="scroll-left-gallery2"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+            <div class="scroll-right-gallery2" id="scroll-right-gallery2"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+            <% for (var idx=0; idx < 10; idx++) { %>
+              <% if (idx == 0){ %>
+                <div class="photo_g2 active" id="photo_g20"></div>
+              <% } else { %>
+                <div class="photo_g2" id=photo_g2<%=idx%>></div>
+              <% } %>
+            <% } %>
+          </div>
+        <% } else if (p.nameID == "Mayweather") { %>
+          <div class="photo-gallery3">
+            <div class="scroll-left-gallery3 first" id="scroll-left-gallery3"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+            <div class="scroll-right-gallery3" id="scroll-right-gallery3"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+            <% for (var idx=0; idx < 6; idx++) { %>
+              <% if (idx == 0){ %>
+                <div class="photo_g3 active" id="photo_g30"></div>
+              <% } else { %>
+                <div class="photo_g3" id=photo_g3<%=idx%>></div>
+              <% } %>
+            <% } %>
+          </div>
+        <% } else if (p.nameID == "Smirf") { %>
+          <div class="photo-gallery4">
+            <div class="scroll-left-gallery4 first" id="scroll-left-gallery4"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+            <div class="scroll-right-gallery4" id="scroll-right-gallery4"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+            <% for (var idx=0; idx < 6; idx++) { %>
+              <% if (idx == 0){ %>
+                <div class="photo_g4 active" id="photo_g40"></div>
+              <% } else { %>
+                <div class="photo_g4" id=photo_g4<%=idx%>></div>
+              <% } %>
+            <% } %>
+          </div>
+        <% } else if (p.nameID == "Quinn") { %>
+          <div class="photo-gallery5">
+            <div class="scroll-left-gallery5 first" id="scroll-left-gallery5"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+            <div class="scroll-right-gallery5" id="scroll-right-gallery5"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+            <% for (var idx=0; idx < 6; idx++) { %>
+              <% if (idx == 0){ %>
+                <div class="photo_g5 active" id="photo_g50"></div>
+              <% } else { %>
+                <div class="photo_g5" id=photo_g5<%=idx%>></div>
+              <% } %>
+            <% } %>
+          </div>
+        <% } else { %>
+          <div class="inline-img">
+            <img src= <%= p["photo"] %> ></img>
+            <div class="caption"><%=p["photocaption"]%> <span class="byline"><%=p["photographer"]%>, The Chronicle</span></div>
+          </div>
+        <% } %>
       </div>
 
       <div class="map-paths">

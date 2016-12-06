@@ -1,0 +1,104 @@
+.inline-img, .photo_g0, .photo_g1, .photo_g2, .photo_g3, .photo_g4, .photo_g5 {
+  max-width: 730px;
+  padding: 2em 0;
+  margin: 0 auto;
+  background: white;
+
+  img{
+    width:100%;
+  }
+
+  .caption{
+    padding:0;
+
+      @media @text-width{
+        padding:0 10px;
+      }
+  }
+}
+
+.photo_g0, .photo_g1, .photo_g2, .photo_g3, .photo_g4, .photo_g5 {
+  width: 80% !important;
+}
+
+.photo-gallery0, .photo-gallery1, .photo-gallery2, .photo-gallery3, .photo-gallery4, .photo-gallery5 {
+  position: relative;
+  margin: 30px auto;
+  @media @mobile {
+    margin: 20px auto;
+  }
+  .photo_g0, .photo_g1, .photo_g2, .photo_g3, .photo_g4, .photo_g5 {
+    display: none;
+    width: 80%;
+    @media @mobile {
+      width: 100%;
+    }
+    margin: auto;
+    &.active {
+      display: inherit;
+    }
+  }
+}
+
+.scroll-right-gallery0, .scroll-left-gallery0, .scroll-right-gallery1, .scroll-left-gallery1, .scroll-right-gallery2, .scroll-left-gallery2, .scroll-right-gallery3, .scroll-left-gallery3, .scroll-right-gallery4, .scroll-left-gallery4, .scroll-right-gallery5, .scroll-left-gallery5 {
+  position: absolute;
+  cursor: pointer;
+  z-index: 50;
+  font-size: 50px;
+  width: 8%;
+  color: black;
+  height: 100%;
+  .fa {
+    margin-top: 200px;
+    @media @mobile {
+      margin-top: 80px;
+    }
+  }
+}
+.scroll-right-gallery0, .scroll-right-gallery1, .scroll-right-gallery2, .scroll-right-gallery3, .scroll-right-gallery4, .scroll-right-gallery5 {
+  left: 92%;
+  &.last {
+    display: none;
+  }
+}
+.scroll-left-gallery0, .scroll-left-gallery1, .scroll-left-gallery2, .scroll-left-gallery3, .scroll-left-gallery4, .scroll-left-gallery5 {
+  left: 5%;
+  @media @mobile {
+    left: 2%;
+  }
+  &.first {
+    display: none;
+  }
+}
+
+.scroll-right, .scroll-left {
+  position: absolute;
+  z-index: 50;
+  font-size: 50px;
+  top: 80px;
+  left: 2%;
+  background: lighten(@gray-blue,18%);
+  padding: 5px;
+  @media @mobile {
+    top: 60px;
+  }
+  &.lower {
+    @media @mobile {
+      top: 100px;
+    }
+  }
+}
+.scroll-right {
+  left: 85%;
+  @media @mobile {
+    left: 90%;
+  }
+  &.last {
+    display: none;
+  }
+}
+.scroll-left{
+  &.first {
+    display: none;
+  }
+}

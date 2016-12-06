@@ -8,8 +8,8 @@
 @button-color: #6790B7;
 
 path {
-  stroke-opacity: 0.3;
-  stroke-width: 6px;
+  stroke-opacity: 0.2;
+  stroke-width: 6 !important;
 }
 
 .footer-container {
@@ -79,22 +79,39 @@ path {
 }
 
 #map-container {
+  // font-family: @block-graphics !important;
   max-width: 900px;
   display: block;
   position: fixed;
   height: 1000px;
   width: 100%;
-  top: 0;
+  top: -50px;
   z-index: -100;
   &.dontshow {
     display: none;
   }
   tspan {
-    font-family: @bold-graphics;
-    font-size: 14px;
+    font-family: @med-graphics !important;
+    font-size: 12px !important;
   }
   text {
-    font-size: 10px;
+    font-family: @med-graphics !important;
+    font-size: 16px !important;
+  }
+  .bold-class {
+    fill: black !important;
+    font-family: @bold-graphics !important;
+    font-size: 16px !important;
+  }
+  .neighborhood-class {
+    fill: black !important;
+    font-family: @block-graphics !important;
+    font-size: 16px !important;
+    tspan {
+      fill: black !important;
+      font-family: @block-graphics !important;
+      font-size: 16px !important;
+    }
   }
   overflow: hidden;
   @media @mobile {
@@ -216,7 +233,7 @@ path {
       width: 100%;
       height: 100%;
     }
-    opacity: 0.6;
+    opacity: 0.3;
     &:hover {
       opacity: 0.3;
     }
