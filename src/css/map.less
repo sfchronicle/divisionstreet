@@ -5,6 +5,13 @@
 @person4: #0085BB;
 @person5: #CF5EA3;
 
+@person0mobile: #E5B76B;
+@person1mobile: #21A567;
+@person2mobile: #E1494E;
+@person3mobile: #34C1D5;
+@person4mobile: #0085BB;
+@person5mobile: #CF5EA3;
+
 @button-color: #6790B7;
 
 path {
@@ -19,12 +26,12 @@ path {
 #SmirfRoute {path {stroke: @person4 !important;} }
 #QuinnRoute {path {stroke: @person5 !important;} }
 
-.Graybox {border: 2px solid @person0; }
-.McKinneybox { border: 2px solid @person1; }
-.Brownellbox { border: 2px solid @person2; }
-.Mayweatherbox { border: 2px solid @person3; }
-.Smirfbox { border: 2px solid @person4; }
-.Quinnbox { border: 2px solid @person5; }
+.Graybox {border: 2px solid @person0mobile; }
+.McKinneybox { border: 2px solid @person1mobile; }
+.Brownellbox { border: 2px solid @person2mobile; }
+.Mayweatherbox { border: 2px solid @person3mobile; }
+.Smirfbox { border: 2px solid @person4mobile; }
+.Quinnbox { border: 2px solid @person5mobile; }
 
 .footer-container {
   background: white;
@@ -220,12 +227,42 @@ path {
     @media @tablet {
       font-size: 20px;
     }
-    &.person0 { border-bottom: 4px solid @person0; }
-    &.person1 { border-bottom: 4px solid @person1; }
-    &.person2 { border-bottom: 4px solid @person2; }
-    &.person3 { border-bottom: 4px solid @person3; }
-    &.person4 { border-bottom: 4px solid @person4; }
-    &.person5 { border-bottom: 4px solid @person5; }
+    &.person0 {
+      border-bottom: 4px solid @person0;
+      @media @mobile {
+        border-bottom: 4px solid @person0mobile;
+      }
+    }
+    &.person1 {
+      border-bottom: 4px solid @person1;
+      @media @mobile {
+        border-bottom: 4px solid @person1mobile;
+      }
+    }
+    &.person2 {
+      border-bottom: 4px solid @person2;
+      @media @mobile {
+        border-bottom: 4px solid @person2mobile;
+      }
+    }
+    &.person3 {
+      border-bottom: 4px solid @person3;
+      @media @mobile {
+        border-bottom: 4px solid @person3mobile;
+      }
+    }
+    &.person4 {
+      border-bottom: 4px solid @person4;
+      @media @mobile {
+        border-bottom: 4px solid @person4mobile;
+      }
+    }
+    &.person5 {
+      border-bottom: 4px solid @person5;
+      @media @mobile {
+        border-bottom: 4px solid @person5mobile;
+      }
+    }
   }
   .profile-desc {
     padding-top: 20px;
