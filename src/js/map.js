@@ -149,7 +149,7 @@ $(window).scroll(function(){
 // MOBILE TEMPLATE -------------------------------------------------------------
 
 var mapslider0_idx = 0, mapslider1_idx = 0, mapslider2_idx = 0, mapslider3_idx = 0, mapslider4_idx = 0, mapslider5_idx = 0;
-var Nmapslider0 = 5, Nmapslider1 = 4, Nmapslider2 = 9, Nmapslider3 = 5, Nmapslider4 = 5, Nmapslider5 = 5;
+var Nmapslider0 = GrayData.length-1, Nmapslider1 = McKinneyData.length-1, Nmapslider2 = BrownellData.length-1, Nmapslider3 = MayweatherData.length-1, Nmapslider4 = SmirfData.length-1, Nmapslider5 = QuinnData.length-1;
 
 // initialize map interactive on mobile
 var mobile_template = dot.compile(require("../partials/_maponmobile.html"));
@@ -167,6 +167,7 @@ for (var i = 0, len = SmirfData.length; i < len; i++) {
 for (var i = 0, len = QuinnData.length; i < len; i++) {
     lookupQuinn[QuinnData[i].id] = QuinnData[i]; }
 document.querySelector(".Graytemplate").innerHTML = mobile_template(lookupGray[mapslider0_idx]);
+console.log(mobile_template(lookupGray[mapslider0_idx]));
 document.querySelector(".McKinneytemplate").innerHTML = mobile_template(lookupMcKinney[mapslider1_idx]);
 document.querySelector(".Brownelltemplate").innerHTML = mobile_template(lookupBrownell[mapslider2_idx]);
 document.querySelector(".Mayweathertemplate").innerHTML = mobile_template(lookupMayweather[mapslider3_idx]);
@@ -230,10 +231,6 @@ document.querySelector(".Quinntemplate").innerHTML = mobile_template(lookupQuinn
       mapslider5_idx = mapslider5_idx-1;
       document.querySelector(".Quinntemplate").innerHTML = mobile_template(lookupQuinn[mapslider5_idx]);
     };
-    // $(".photo_g"+kk).removeClass("active");
-    // $("#photo_g" + kk + eval("mapslider"+kk+"_idx") ).addClass("active");
-    // console.log("#photo_g" + kk + eval("mapslider"+kk+"_idx"));
-    // console.log(eval("mapslider"+kk+"_idx"));
     if (eval("mapslider"+kk+"_idx") == eval("Nmapslider"+kk)) {
       $("#scroll-right-mapslider"+kk).addClass("last");
     } else {
