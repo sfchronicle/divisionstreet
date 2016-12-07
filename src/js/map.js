@@ -152,27 +152,27 @@ var slideshow_template = dot.compile(require("../partials/_slideshow.html"));
 // Gray photo gallery
 var photo00 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992057/3/2000x1000.jpg",
-  caption: "A jet takes off over the original levees that surround Oakland International Airport, which opened in 1962. With as little as 18 inches of sea level rise, water could spill across Doolittle Drive onto the airport runways several times a year during extra-high tides unless the drive’s low spots are raised. ",
+  caption: "Kathy Gray makes a purchase after cashing a check in October. "
 };
 var photo01 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992054/3/2000x1000.jpg",
-  caption: "Some ponds are a lot more saturated with salt than others at the Ravenswood Ponds in East Palo Alto. Ravenswood is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "As rain falls in January, Kathy Gray takes shelter in her tent along 13th Street. "
 };
 var photo02 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992097/3/2000x1000.jpg",
-  caption: "Remnants of the old salt works from the 1920s remain at the Eden Landing Ecological Reserve in Hayward. Eden Landing is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "Kathy Gray waits at a check-cashing center in October. "
 };
 var photo03 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992096/3/2000x1000.jpg",
-  caption: "An estimated 9,000 properties in Foster City are protected by a levee that runs around the entire development. City officials are considering their options after the Federal Emergency Management Agency’s pending coastal flood map indicates that Foster City’s levee system is no longer adequate. ",
+  caption: "Gracie the dog gets a piece of Kathy Gray’s donut in their room at the Civic Center Navigation Center in October. "
 };
 var photo04 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992051/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "A photo of Kathy Gray living in a tent and a birthday card decorate her wall at the Civic Center Navigation Center. "
 };
 var photo05 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992159/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "S.F. Homeless Outreach Team member Alex Farrand (left) speaks with Kathy Gray as they head to the Social Security Administration office in November. ",
 };
 
 // filling in Gray slideshow
@@ -183,23 +183,23 @@ var photo05 = {
 // McKinney photos
 var photo10 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992456/3/2000x1000.jpg",
-  caption: "A jet takes off over the original levees that surround Oakland International Airport, which opened in 1962. With as little as 18 inches of sea level rise, water could spill across Doolittle Drive onto the airport runways several times a year during extra-high tides unless the drive’s low spots are raised. ",
+  caption: "Oscar McKinney pedals along 13th Street as Cassandra Brownell (left) leaves her RV in October. "
 };
 var photo11 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992409/3/2000x1000.jpg",
-  caption: "Some ponds are a lot more saturated with salt than others at the Ravenswood Ponds in East Palo Alto. Ravenswood is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "Oscar McKinney peeks out of his tent on 13th Street in January after a visit from the city’s Homeless Outreach Team. "
 };
 var photo12 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992465/3/2000x1000.jpg",
-  caption: "Remnants of the old salt works from the 1920s remain at the Eden Landing Ecological Reserve in Hayward. Eden Landing is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "After hearing of plans to remove shelters along 13th Street, Oscar McKinney prepares to move one of his tents early on a February morning. He was living in one tent and renting out two others. "
 };
 var photo13 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992466/3/2000x1000.jpg",
-  caption: "An estimated 9,000 properties in Foster City are protected by a levee that runs around the entire development. City officials are considering their options after the Federal Emergency Management Agency’s pending coastal flood map indicates that Foster City’s levee system is no longer adequate. ",
+  caption: "Oscar McKinney (left) waits for a cup of soup as Rashida Coleman spoons some into a cup as she and her son Mikah, 15, feed homeless people around the Division Street encampment in February. "
 };
 var photo14 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992460/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Rashida Coleman hands Oscar McKinney a cup of soup as she helps feed people at the Division Street encampment. "
 };
 
 // filling in McKinney slideshow
@@ -210,43 +210,43 @@ var photo14 = {
 // Brownell gallery
 var photo20 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991713/3/2000x1000.jpg",
-  caption: "A jet takes off over the original levees that surround Oakland International Airport, which opened in 1962. With as little as 18 inches of sea level rise, water could spill across Doolittle Drive onto the airport runways several times a year during extra-high tides unless the drive’s low spots are raised. ",
+  caption: "Robert Brownell and Cassandra Brownell embrace on the sidewalk along 13th Street while talking with their neighbors in November. "
 };
 var photo21 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991666/3/2000x1000.jpg",
-  caption: "Some ponds are a lot more saturated with salt than others at the Ravenswood Ponds in East Palo Alto. Ravenswood is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "Robert Brownell shaves in his RV in November. "
 };
 var photo22 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991802/3/2000x1000.jpg",
-  caption: "Remnants of the old salt works from the 1920s remain at the Eden Landing Ecological Reserve in Hayward. Eden Landing is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "Cassandra Brownell pours a glass of water while eating breakfast with her husband, Robert, in November. "
 };
 var photo23 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991805/3/2000x1000.jpg",
-  caption: "An estimated 9,000 properties in Foster City are protected by a levee that runs around the entire development. City officials are considering their options after the Federal Emergency Management Agency’s pending coastal flood map indicates that Foster City’s levee system is no longer adequate. ",
+  caption: "Cassandra Brownell reaches for eggs while making breakfast. "
 };
 var photo24 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991760/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Robert Brownell (right) thanks Circole “Cole” Beye, who donated clothes during a sidewalk sale in November. "
 };
 var photo25 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991667/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Robert Brownell talks with his wife, Cassandra, in their RV in October. "
 };
 var photo26 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991762/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Robert Brownell keeps coins earned at the sidewalk sale in a empty cigarette pack. "
 };
 var photo27 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991705/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Cassandra Brownell (second from left) and her husband, Robert, talk on a Muni bus as Cassandra prepares to visit her grandson in October. "
 };
 var photo28 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991801/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Cassandra Brownell knocks on the door of her dentist’s office before a November appointment. "
 };
 var photo29 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991764/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Cassandra Brownell hugs Dr. Connie Rocabo after getting new dentures in November. After seeing herself in a mirror, Brownell said, “I've been ugly for too long,” as tears rolled down her face. "
 };
 
 // filling in Brownell slideshow
@@ -257,27 +257,27 @@ var photo29 = {
 // Mayweather photos
 var photo30 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992286/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Angelique Mayweather sits in her tent on Utah Street in October. "
 };
 var photo31 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992342/3/2000x1000.jpg",
-  caption: "Some ponds are a lot more saturated with salt than others at the Ravenswood Ponds in East Palo Alto. Ravenswood is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "Angelique Mayweather (with bike) stands at Florida and Division streets in February as Seanda Conley hands out soup. "
 };
 var photo32 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992341/3/2000x1000.jpg",
-  caption: "Remnants of the old salt works from the 1920s remain at the Eden Landing Ecological Reserve in Hayward. Eden Landing is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "Angelique Mayweather struggles to secure her tent and belongings on Utah Street during an October storm. "
 };
 var photo33 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992339/3/2000x1000.jpg",
-  caption: "An estimated 9,000 properties in Foster City are protected by a levee that runs around the entire development. City officials are considering their options after the Federal Emergency Management Agency’s pending coastal flood map indicates that Foster City’s levee system is no longer adequate. ",
+  caption: "Angelique Mayweather holds her dog, Man Man, next to her tent on Utah Street in October. "
 };
 var photo34 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992335/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Angelique Mayweather rests in her tarp-covered tent in October. "
 };
 var photo35 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992408/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Cedric Roll takes a battery pack from Ned DePuy, who works in the neighborhood and charges batteries for Roll and Angelique Mayweather to help them out. "
 };
 
 // filling in Mayweather slideshow
@@ -288,27 +288,27 @@ var photo35 = {
 // Smirf photos
 var photo40 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992219/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "“Papa Smirf” and Dawn “Mama Smirf” embrace in their tent along Florida Street in November."
 };
 var photo41 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992216/3/2000x1000.jpg",
-  caption: "Some ponds are a lot more saturated with salt than others at the Ravenswood Ponds in East Palo Alto. Ravenswood is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "“Papa Smirf” (center) carries belongings while moving from his tent on 13th Street to the Pier 80 shelter in February. The San Francisco Homeless Outreach Team was there to help the residents. "
 };
 var photo42 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992283/3/2000x1000.jpg",
-  caption: "Remnants of the old salt works from the 1920s remain at the Eden Landing Ecological Reserve in Hayward. Eden Landing is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "“Papa Smirf” on Market Street in October. "
 };
 var photo43 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992212/3/2000x1000.jpg",
-  caption: "An estimated 9,000 properties in Foster City are protected by a levee that runs around the entire development. City officials are considering their options after the Federal Emergency Management Agency’s pending coastal flood map indicates that Foster City’s levee system is no longer adequate. ",
+  caption: "“Papa Smirf” (left) talks with “Polar Bear” as they pack up their tents before heading out with the S.F. Homeless Outreach Team to the Pier 80 shelter in February. "
 };
 var photo44 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992280/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "“Papa Smirf” wears gifts from other homeless people in January. "
 };
 var photo45 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992220/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "“Papa Smirf” holds a blanket next to the mat designated as his spot after arriving at the Pier 80 shelter. "
 };
 
 // filling in Smirf slideshow
@@ -319,27 +319,27 @@ var photo45 = {
 // Quinn photos
 var photo50 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991926/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Terry Quinn orders food at the corner market near his Henry Hotel home in November. "
 };
 var photo51 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991864/3/2000x1000.jpg",
-  caption: "Some ponds are a lot more saturated with salt than others at the Ravenswood Ponds in East Palo Alto. Ravenswood is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "Terry Quinn (left) walks from the corner market back to the Henry Hotel. "
 };
 var photo52 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991921/3/2000x1000.jpg",
-  caption: "Remnants of the old salt works from the 1920s remain at the Eden Landing Ecological Reserve in Hayward. Eden Landing is one of the South Bay Salt Pond Restoration projects. ",
+  caption: "Terry Quinn displays a scar on the back of his neck in February. "
 };
 var photo53 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991925/3/2000x1000.jpg",
-  caption: "An estimated 9,000 properties in Foster City are protected by a levee that runs around the entire development. City officials are considering their options after the Federal Emergency Management Agency’s pending coastal flood map indicates that Foster City’s levee system is no longer adequate. ",
+  caption: "Terry Quinn enters through a security gate at the Henry Hotel in November. "
 };
 var photo54 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991974/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Terry Quinn moves things around in his new home at the Henry Hotel in November."
 };
 var photo55 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11991976/3/2000x1000.jpg",
-  caption: "Brian Gilardi operates a spreader filled with lime that is distributed along the levees at the Sears Point Wetland Restoration in Sonoma. The lime is used to balance the acidity of the soil, which will encourage plant growth. ",
+  caption: "Terry Quinn walks through a corridor at the Henry Hotel."
 };
 
 // filling in Quinn slideshow
