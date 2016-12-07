@@ -132,7 +132,7 @@
   }
 }
 
-#infobox{
+#infobox, #mapbox{
   float: right;
   width: 30%;
   color: #585858;
@@ -144,6 +144,10 @@
 
   a{
     color:@red;
+    
+    :hover{
+      color:@red;
+    }
   }
 
   img{
@@ -169,6 +173,16 @@
     @media (max-width: 890px){
       max-width: 730px;
     }
+  }
+}
+
+#mapbox{
+  .text{
+    color:#333 !important;
+  }
+  img{
+    max-width:255px;
+    margin-bottom:10px;
   }
 }
 
