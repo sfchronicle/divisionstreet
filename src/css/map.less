@@ -77,7 +77,28 @@ path {
 // }
 
 .video-wrapper {
+  margin-top:6px;
   background: white;
+}
+
+.video-bg{
+    opacity: 1;
+    overflow: hidden;
+}
+
+.video-file{
+  width:100%;
+  @media (max-width:1024px){
+    display:none;
+  }
+}
+
+.video-gif{
+  display:none;
+  width:100%;
+  @media (max-width:1024px){
+    display:block;
+  }
 }
 
 .inline-img {
