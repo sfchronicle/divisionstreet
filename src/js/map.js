@@ -377,7 +377,7 @@ var photo34 = {
 };
 var photo35 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992408/3/2000x1000.jpg",
-  caption: "Cedric Roll takes a battery pack from Ned DePuy, who works in the neighborhood and charges batteries for Roll and Angelique Mayweather to help them out. "
+  caption: "Cedric Rollé takes a battery pack from Ned DePuy, who works in the neighborhood and charges batteries for Rollé and Angelique Mayweather to help them out. "
 };
 
 // filling in Mayweather slideshow
