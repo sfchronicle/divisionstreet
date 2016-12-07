@@ -26,7 +26,9 @@
   margin: 30px auto;
   @media @mobile {
     margin: 20px auto;
+    margin-bottom: 0;
   }
+  max-width: 1000px;
   .photo_g0, .photo_g1, .photo_g2, .photo_g3, .photo_g4, .photo_g5 {
     display: none;
     width: 80%;
@@ -49,7 +51,7 @@
   color: black;
   height: 100%;
   .fa {
-    margin-top: 200px;
+    margin-top: 220px;
     @media @mobile {
       margin-top: 80px;
     }
@@ -98,6 +100,30 @@
   }
 }
 .scroll-left{
+  &.first {
+    display: none;
+  }
+}
+
+.scroll-class {
+  text-align: center;
+}
+
+.scroll-right-mapslider, .scroll-left-mapslider {
+  cursor: pointer;
+  z-index: 50;
+  font-size: 30px;
+  width: 8%;
+  color: black;
+  text-align: center;
+  padding: 5px;
+}
+.scroll-right-mapslider {
+  &.last {
+    display: none;
+  }
+}
+.scroll-left-mapslider {
   &.first {
     display: none;
   }

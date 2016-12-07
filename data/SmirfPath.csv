@@ -1,9 +1,9 @@
-id,date,text
-0,Early February,"On Division Street in a tent near Folsom Street."
-1,Late February,"Takes street counselor’s offer and moves to temporary Pier 80 homeless shelter."
-2,April 7 to April 29,"In San Francisco jail on misdemeanor drug possession charge, released on probation."
-3,May,"Moves to tent in homeless camp near Pier 80, near Marin and Third streets."
-4,Late June,"Rents room in an SRO, the Krishna Hotel on Mission Street near 16th Street."
-5,Early September,"Stays on couch at friend’s house in the Tenderloin."
-6,Late September,"Camps at various spots within a few blocks of Market and Castro streets."
-7,November,"Back to camping near his old spot on Division, now at 16th and Florida streets."
+id,date,text,pID
+0,Early February,"On Division Street in a tent near Folsom Street.",4
+1,Late February,"Takes street counselor’s offer and moves to temporary Pier 80 homeless shelter.",4
+2,April 7 to April 29,"In San Francisco jail on misdemeanor drug possession charge, released on probation.",4
+3,May,"Moves to tent in homeless camp near Pier 80, near Marin and Third streets.",4
+4,Late June,"Rents room in an SRO, the Krishna Hotel on Mission Street near 16th Street.",4
+5,Early September,"Stays on couch at friend’s house in the Tenderloin.",4
+6,Late September,"Camps at various spots within a few blocks of Market and Castro streets.",4
+7,November,"Back to camping near his old spot on Division, now at 16th and Florida streets.",4

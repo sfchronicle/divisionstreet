@@ -1,5 +1,5 @@
-id,date,text
-0,February,"On Division Street, in front of Best Buy, and then on March 1 is swept away in big clear-out and moves tent to 13th and Harrison streets."
-1,Early June,"Takes street counselor’s offer and moves to temporary Pier 80 homeless shelter near corner of Cesar Chavez and Third streets."
-2,End of June,"Leaves shortly before Pier 80 closed, pitches tent at Fourth and Harrison streets."
-3,Early July to now,"Living in tent on Utah Street near 16th Street."
+id,date,text,pID
+0,February,"On Division Street, in front of Best Buy, and then on March 1 is swept away in big clear-out and moves tent to 13th and Harrison streets.",3
+1,Early June,"Takes street counselor’s offer and moves to temporary Pier 80 homeless shelter near corner of Cesar Chavez and Third streets.",3
+2,End of June,"Leaves shortly before Pier 80 closes, pitches tent at Fourth and Harrison streets.",3
+3,Early July to now,"Living in tent on Utah Street near 16th Street.",3

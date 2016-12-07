@@ -46,6 +46,8 @@ function drawPath(orig,routeID){
   scaleVal = (1-pathLength/windowHeight)*0.6+0.7;
   panHoriz = "0px";
   panVert = "0px";
+  if (routeID == "GrayRoute"){panVert = "150px"}
+  if ((routeID == "MayweatherRoute") || (routeID == "SmirftRoute")){panVert = "-100px"}
   zoom(panHoriz,panVert,scaleVal);
 }
 
@@ -144,7 +146,108 @@ $(window).scroll(function(){
   }
 });
 
-// IMAGE GALLERIES
+// MOBILE TEMPLATE -------------------------------------------------------------
+
+var mapslider0_idx = 0, mapslider1_idx = 0, mapslider2_idx = 0, mapslider3_idx = 0, mapslider4_idx = 0, mapslider5_idx = 0;
+var Nmapslider0 = 5, Nmapslider1 = 4, Nmapslider2 = 9, Nmapslider3 = 5, Nmapslider4 = 5, Nmapslider5 = 5;
+
+// initialize map interactive on mobile
+var mobile_template = dot.compile(require("../partials/_maponmobile.html"));
+var lookupGray = {}, lookupMcKinney = {}, lookupBrownell={}, lookupMayweather = {}, lookupSmirf={}, lookupQuinn = {};
+for (var i = 0, len = GrayData.length; i < len; i++) {
+    lookupGray[GrayData[i].id] = GrayData[i]; }
+for (var i = 0, len = McKinneyData.length; i < len; i++) {
+    lookupMcKinney[McKinneyData[i].id] = McKinneyData[i]; }
+for (var i = 0, len = BrownellData.length; i < len; i++) {
+    lookupBrownell[BrownellData[i].id] = BrownellData[i]; }
+for (var i = 0, len = MayweatherData.length; i < len; i++) {
+    lookupMayweather[MayweatherData[i].id] = MayweatherData[i]; }
+for (var i = 0, len = SmirfData.length; i < len; i++) {
+    lookupSmirf[SmirfData[i].id] = SmirfData[i]; }
+for (var i = 0, len = QuinnData.length; i < len; i++) {
+    lookupQuinn[QuinnData[i].id] = QuinnData[i]; }
+document.querySelector(".Graytemplate").innerHTML = mobile_template(lookupGray[mapslider0_idx]);
+document.querySelector(".McKinneytemplate").innerHTML = mobile_template(lookupMcKinney[mapslider1_idx]);
+document.querySelector(".Brownelltemplate").innerHTML = mobile_template(lookupBrownell[mapslider2_idx]);
+document.querySelector(".Mayweathertemplate").innerHTML = mobile_template(lookupMayweather[mapslider3_idx]);
+document.querySelector(".Smirftemplate").innerHTML = mobile_template(lookupSmirf[mapslider4_idx]);
+document.querySelector(".Quinntemplate").innerHTML = mobile_template(lookupQuinn[mapslider5_idx]);
+
+// photo gallery event listeners
+
+[0,1,2,3,4,5].forEach(function(kk){
+  // set up clicking to update map interactive on mobile
+  document.getElementById("scroll-right-mapslider"+kk).addEventListener("click", function() {
+    console.log("clicked right");
+    if (kk == 0) {
+      mapslider0_idx = mapslider0_idx+1;
+      document.querySelector(".Graytemplate").innerHTML = mobile_template(lookupGray[mapslider0_idx]);
+    } else if (kk == 1) {
+      mapslider1_idx = mapslider1_idx+1;
+      document.querySelector(".McKinneytemplate").innerHTML = mobile_template(lookupMcKinney[mapslider1_idx]);
+    } else if (kk == 2) {
+      mapslider2_idx = mapslider2_idx+1;
+      document.querySelector(".Brownelltemplate").innerHTML = mobile_template(lookupBrownell[mapslider2_idx]);
+    } else if (kk == 3) {
+      mapslider3_idx = mapslider3_idx+1;
+      document.querySelector(".Mayweathertemplate").innerHTML = mobile_template(lookupMayweather[mapslider3_idx]);
+    } else if (kk == 4) {
+      mapslider4_idx = mapslider4_idx+1;
+      document.querySelector(".Smirftemplate").innerHTML = mobile_template(lookupSmirf[mapslider4_idx]);
+    } else if (kk == 5) {
+      mapslider5_idx = mapslider5_idx+1;
+      document.querySelector(".Quinntemplate").innerHTML = mobile_template(lookupQuinn[mapslider5_idx]);
+    };
+    if (eval("mapslider"+kk+"_idx") == eval("Nmapslider"+kk)) {
+      $("#scroll-right-mapslider"+kk).addClass("last");
+    } else {
+      $("#scroll-right-mapslider"+kk).removeClass("last");
+    };
+    if (eval("mapslider"+kk+"_idx") == 0) {
+      $("#scroll-left-mapslider"+kk).addClass("first");
+    } else {
+      $("#scroll-left-mapslider"+kk).removeClass("first");
+    };
+  });
+  document.getElementById("scroll-left-mapslider"+kk).addEventListener("click", function() {
+    console.log("clicked left");
+    if (kk == 0) {
+      mapslider0_idx = mapslider0_idx-1;
+      document.querySelector(".Graytemplate").innerHTML = mobile_template(lookupGray[mapslider0_idx]);
+    } else if (kk == 1) {
+      mapslider1_idx = mapslider1_idx-1;
+      document.querySelector(".McKinneytemplate").innerHTML = mobile_template(lookupMcKinney[mapslider1_idx]);
+    } else if (kk == 2) {
+      mapslider2_idx = mapslider2_idx-1;
+      document.querySelector(".Brownelltemplate").innerHTML = mobile_template(lookupBrownell[mapslider2_idx]);
+    } else if (kk == 3) {
+      mapslider3_idx = mapslider3_idx-1;
+      document.querySelector(".Mayweathertemplate").innerHTML = mobile_template(lookupMayweather[mapslider3_idx]);
+    } else if (kk == 4) {
+      mapslider4_idx = mapslider4_idx-1;
+      document.querySelector(".Smirftemplate").innerHTML = mobile_template(lookupSmirf[mapslider4_idx]);
+    } else if (kk == 5) {
+      mapslider5_idx = mapslider5_idx-1;
+      document.querySelector(".Quinntemplate").innerHTML = mobile_template(lookupQuinn[mapslider5_idx]);
+    };
+    // $(".photo_g"+kk).removeClass("active");
+    // $("#photo_g" + kk + eval("mapslider"+kk+"_idx") ).addClass("active");
+    // console.log("#photo_g" + kk + eval("mapslider"+kk+"_idx"));
+    // console.log(eval("mapslider"+kk+"_idx"));
+    if (eval("mapslider"+kk+"_idx") == eval("Nmapslider"+kk)) {
+      $("#scroll-right-mapslider"+kk).addClass("last");
+    } else {
+      $("#scroll-right-mapslider"+kk).removeClass("last");
+    };
+    if (eval("mapslider"+kk+"_idx") == 0) {
+      $("#scroll-left-mapslider"+kk).addClass("first");
+    } else {
+      $("#scroll-left-mapslider"+kk).removeClass("first");
+    };
+  });
+});
+
+// IMAGE GALLERIES--------------------------------------------------------------
 
 // templates for the two interactives
 var slideshow_template = dot.compile(require("../partials/_slideshow.html"));
@@ -167,7 +270,7 @@ var photo03 = {
   caption: "Gracie the dog gets a piece of Kathy Gray’s donut in their room at the Civic Center Navigation Center in October. "
 };
 var photo04 = {
-  url: "http://ww2.hdnux.com/photos/54/11/64/11992051/3/2000x1000.jpg",
+  url: "http://projects.sfchronicle.com/sf-homeless/static/images/division-street-map/kathy_g04.jpg",
   caption: "A photo of Kathy Gray living in a tent and a birthday card decorate her wall at the Civic Center Navigation Center. "
 };
 var photo05 = {
@@ -229,7 +332,7 @@ var photo24 = {
   caption: "Robert Brownell (right) thanks Circole “Cole” Beye, who donated clothes during a sidewalk sale in November. "
 };
 var photo25 = {
-  url: "http://ww2.hdnux.com/photos/54/11/64/11991667/3/2000x1000.jpg",
+  url: "http://projects.sfchronicle.com/sf-homeless/static/images/division-street-map/brownells.jpg",
   caption: "Robert Brownell talks with his wife, Cassandra, in their RV in October. "
 };
 var photo26 = {
@@ -241,11 +344,11 @@ var photo27 = {
   caption: "Cassandra Brownell (second from left) and her husband, Robert, talk on a Muni bus as Cassandra prepares to visit her grandson in October. "
 };
 var photo28 = {
-  url: "http://ww2.hdnux.com/photos/54/11/64/11991801/3/2000x1000.jpg",
-  caption: "Cassandra Brownell knocks on the door of her dentist’s office before a November appointment. "
+  url: "http://ww2.hdnux.com/photos/54/11/64/11991764/3/2000x1000.jpg",
+  caption: "Dr. Connie Rocabo checks the fitting of Cassandra Brownell's new dentures in November. "
 };
 var photo29 = {
-  url: "http://ww2.hdnux.com/photos/54/11/64/11991764/3/2000x1000.jpg",
+  url: "http://ww2.hdnux.com/photos/54/11/64/11991811/3/2000x1000.jpg",
   caption: "Cassandra Brownell hugs Dr. Connie Rocabo after getting new dentures in November. After seeing herself in a mirror, Brownell said, “I've been ugly for too long,” as tears rolled down her face. "
 };
 
@@ -261,19 +364,19 @@ var photo30 = {
 };
 var photo31 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992342/3/2000x1000.jpg",
-  caption: "Angelique Mayweather (with bike) stands at Florida and Division streets in February as Seanda Conley hands out soup. "
+  caption: "Angelique Mayweather struggles to secure her tent and belongings on Utah Street during an October storm. "
 };
 var photo32 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992341/3/2000x1000.jpg",
-  caption: "Angelique Mayweather struggles to secure her tent and belongings on Utah Street during an October storm. "
+  caption: "Angelique Mayweather holds her dog, Man Man, next to her tent on Utah Street in October. "
 };
 var photo33 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992339/3/2000x1000.jpg",
-  caption: "Angelique Mayweather holds her dog, Man Man, next to her tent on Utah Street in October. "
+  caption: "Angelique Mayweather rests in her tarp-covered tent in October. "
 };
 var photo34 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992335/3/2000x1000.jpg",
-  caption: "Angelique Mayweather rests in her tarp-covered tent in October. "
+  caption: "Angelique Mayweather (with bike) stands at Florida and Division streets in February as Seanda Conley hands out soup. "
 };
 var photo35 = {
   url: "http://ww2.hdnux.com/photos/54/11/64/11992408/3/2000x1000.jpg",
@@ -303,7 +406,7 @@ var photo43 = {
   caption: "“Papa Smirf” (left) talks with “Polar Bear” as they pack up their tents before heading out with the S.F. Homeless Outreach Team to the Pier 80 shelter in February. "
 };
 var photo44 = {
-  url: "http://ww2.hdnux.com/photos/54/11/64/11992280/3/2000x1000.jpg",
+  url: "http://projects.sfchronicle.com/sf-homeless/static/images/division-street-map/smirf_g44.jpg",
   caption: "“Papa Smirf” wears gifts from other homeless people in January. "
 };
 var photo45 = {
@@ -349,6 +452,7 @@ var photo55 = {
 
 // photo gallery event listeners
 var gallery0_idx = 0, gallery1_idx = 0, gallery2_idx = 0, gallery3_idx = 0, gallery4_idx = 0, gallery5_idx = 0;
+var Ngallery0 = 5, Ngallery1 = 4, Ngallery2 = 9, Ngallery3 = 5, Ngallery4 = 5, Ngallery5 = 5;
 [0,1,2,3,4,5].forEach(function(kk){
   // set up clicking to update map interactive on mobile
   document.getElementById("scroll-right-gallery"+kk).addEventListener("click", function() {
@@ -363,7 +467,7 @@ var gallery0_idx = 0, gallery1_idx = 0, gallery2_idx = 0, gallery3_idx = 0, gall
     $("#photo_g" + kk + eval("gallery"+kk+"_idx") ).addClass("active");
     console.log("#photo_g" + kk + eval("gallery"+kk+"_idx"));
     console.log(eval("gallery"+kk+"_idx"));
-    if (eval("gallery"+kk+"_idx") == 4) {
+    if (eval("gallery"+kk+"_idx") == eval("Ngallery"+kk)) {
       $("#scroll-right-gallery"+kk).addClass("last");
     } else {
       $("#scroll-right-gallery"+kk).removeClass("last");
@@ -386,7 +490,7 @@ var gallery0_idx = 0, gallery1_idx = 0, gallery2_idx = 0, gallery3_idx = 0, gall
     $("#photo_g" + kk + eval("gallery"+kk+"_idx") ).addClass("active");
     console.log("#photo_g" + kk + eval("gallery"+kk+"_idx"));
     console.log(eval("gallery"+kk+"_idx"));
-    if (eval("gallery"+kk+"_idx") == 4) {
+    if (eval("gallery"+kk+"_idx") == eval("Ngallery"+kk)) {
       $("#scroll-right-gallery"+kk).addClass("last");
     } else {
       $("#scroll-right-gallery"+kk).removeClass("last");

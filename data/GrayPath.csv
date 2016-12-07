@@ -1,6 +1,6 @@
-id,date,text
-0,February,"On Division Street, in a tent in front of Best Buy."
-1,Feb. 29,"Moves to Next Door shelter the day before the big sweep."
-2,May,"Moves to short-term room in an SRO, the Oakwood Hotel on Fifth Street near Mission."
-3,June,"Moves to short-term room in Navigation Center at Civic Center Hotel on Market Street."
-4,Late October to now,"Living in short-term room in another SRO on Jones Street near Ellis Street."
+id,date,text,pID
+0,February,"On Division Street, in a tent in front of Best Buy.",0
+1,Feb. 29,"Moves to Next Door shelter the day before the big sweep.",0
+2,May,"Moves to short-term room in an SRO, the Oakwood Hotel on Fifth Street near Mission.",0
+3,June,"Moves to short-term room in Navigation Center at Civic Center Hotel on Market Street.",0
+4,Late October to now,"Living in short-term room in another SRO on Jones Street near Ellis Street.",0
